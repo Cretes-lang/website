@@ -31,6 +31,28 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Privacy-Preserving Analytics Endpoint
+  if (reqPath === '/api/analytics') {
+    if (req.method === 'POST') {
+      let body = '';
+      req.on('data', chunk => { body += chunk; });
+      req.on('end', () => {
+        res.writeHead(204, {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        });
+        res.end();
+      });
+      return;
+    }
+    res.writeHead(200, {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+    });
+    res.end(JSON.stringify({ status: 'ok', privacy: 'zero-cookie-gdpr-compliant' }));
+    return;
+  }
+
   // Raw file alias routing
   if (reqPath === '/robots') reqPath = '/robots.txt';
   if (reqPath === '/llms') reqPath = '/llms.txt';
@@ -58,6 +80,9 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/checksums' || reqPath === '/CHECKSUMS' || reqPath === '/CHECKSUMS.txt' || reqPath === '/SHASUMS256.txt') reqPath = '/CHECKSUMS.txt';
   if (reqPath === '/provenance' || reqPath === '/provenance.json') reqPath = '/provenance.json';
   if (reqPath === '/security-scanning' || reqPath === '/SECURITY-SCANNING.md') reqPath = '/SECURITY-SCANNING.md';
+  if (reqPath === '/security-scanning.txt') reqPath = '/security-scanning.txt';
+  if (reqPath === '/community' || reqPath === '/community.txt') reqPath = '/community.txt';
+  if (reqPath === '/contribute' || reqPath === '/contribute.txt') reqPath = '/contribute.txt';
 
   const filePath = path.join(__dirname, reqPath);
   const ext = path.extname(filePath).toLowerCase();

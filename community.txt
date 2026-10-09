@@ -1,0 +1,21 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - COMMUNITY DIRECTORY
+# Canonical URL: https://cretes.org/community.txt
+# Full Contribution Pathways: https://cretes.org/contribute.txt
+# Governance Charter: https://cretes.org/GOVERNANCE.md
+# ==============================================================================
+
+PROJECT COORDINATION & HUBS:
+- Community Portal: https://cretes.org
+- GitHub Organization: https://github.com/Cretes-lang
+- Discussions & Q&A: https://github.com/orgs/Cretes-lang/discussions
+- Issue Tracker: https://github.com/Cretes-lang/cretes/issues
+- RFC Proposals: https://github.com/Cretes-lang/rfcs
+- Security Inquiries: security@cretes.org
+- Conduct Concerns: conduct@cretes.org
+
+HOW TO PARTICIPATE:
+1. Join community discussions on architectural proposals and RFCs.
+2. Review pull requests and help triage incoming issues.
+3. Submit code contributions following https://cretes.org/CONTRIBUTING.md.
+4. Uphold the community standards outlined in https://cretes.org/CODE_OF_CONDUCT.md.

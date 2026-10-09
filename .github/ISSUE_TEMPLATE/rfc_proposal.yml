@@ -1,0 +1,33 @@
+name: RFC Proposal
+description: Propose a substantial design change to the Cretes language, standard library, or tooling.
+title: "[RFC Proposal]: "
+labels: ["rfc", "language-design"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Substantial language changes require following the [Cretes RFC Process](https://cretes.org/RFCs.md).
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Brief one-paragraph explanation of the proposed feature.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why are we doing this? What use cases does it support? What is the expected outcome?
+    validations:
+      required: true
+
+  - type: textarea
+    id: design
+    attributes:
+      label: Guide-Level Explanation
+      description: Explain the proposal as if it were already implemented and documented in the official specification.
+    validations:
+      required: true
