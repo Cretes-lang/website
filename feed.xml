@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cretes Programming Language</title>
+    <link>https://cretes.org</link>
+    <description>Announcements, releases, RFCs, and engineering updates for the Cretes programming language.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://cretes.org/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Cretes Specification &amp; RFC Pipeline Announced</title>
+      <link>https://github.com/Cretes-lang/rfcs</link>
+      <guid isPermaLink="true">https://github.com/Cretes-lang/rfcs</guid>
+      <pubDate>Fri, 09 Oct 2026 10:00:00 GMT</pubDate>
+      <description>Initial formal specification and evolutionary RFC process established for Cretes.</description>
+    </item>
+    <item>
+      <title>Cretes Official Web Portal Launch</title>
+      <link>https://cretes.org</link>
+      <guid isPermaLink="true">https://cretes.org</guid>
+      <pubDate>Fri, 09 Oct 2026 08:00:00 GMT</pubDate>
+      <description>Launch of the official web presence for the Cretes compiled systems programming language.</description>
+    </item>
+  </channel>
+</rss>

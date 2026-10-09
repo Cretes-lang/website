@@ -1,0 +1,26 @@
+# Cretes Programming Language
+
+> Cretes is a modern compiled systems programming language engineered for uncompromising performance, deterministic memory safety without garbage collection, and expressive developer ergonomics.
+
+## Overview & Core Documentation
+- [Official Website](https://cretes.org): Project portal, documentation gateway, and community hubs.
+- [GitHub Repository](https://github.com/Cretes-lang/cretes): Compiler implementation, CLI toolchain, and standard library source.
+- [Language Specification](https://github.com/Cretes-lang/spec): Formal grammar, type system, ownership semantics, and memory model.
+- [Language Tour & Examples](https://github.com/Cretes-lang/cretes/tree/main/examples): Real-world code examples demonstrating concurrency, memory management, and data structures.
+- [Getting Started Guide](https://github.com/Cretes-lang/cretes): Installation instructions, toolchain configuration, and Hello World walkthrough.
+
+## Design Philosophy & Features
+- **Deterministic Memory Safety**: Compile-time ownership, borrowing, and lifetime verification without runtime garbage collection pauses.
+- **Zero-Cost Abstractions**: High-level patterns (iterators, closures, generics, pattern matching) compile directly to optimal machine code.
+- **Native Performance**: LLVM-based backend producing statically linked native binaries with minimal overhead.
+- **Modern Concurrency**: First-class async/await runtime, channels, and structured concurrency preventing data races at compile time.
+- **Modern Toolchain**: Integrated package management, formatting, linting, testing, and documentation generation out of the box.
+
+## Ecosystem & Community
+- [RFC Process & Proposals](https://github.com/Cretes-lang/rfcs): Technical design proposals, language changes, and evolutionary RFCs.
+- [Community Discussions](https://github.com/orgs/Cretes-lang/discussions): Questions, architecture discussions, and development forums.
+- [Contribution Guidelines](https://github.com/Cretes-lang/.github/blob/main/CONTRIBUTING.md): How to submit patches, compiler tests, and bug fixes.
+- [Security Policy](https://github.com/Cretes-lang/.github/blob/main/SECURITY.md): Vulnerability reporting, security disclosures, and policies.
+
+## Full LLM Ingestion
+- [llms-full.txt](https://cretes.org/llms-full.txt): Complete consolidated language manual, full grammar specifications, standard library overview, and comprehensive code samples in a single ingestion-ready file.

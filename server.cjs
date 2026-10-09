@@ -9,6 +9,7 @@ const MIME = {
   '.js': 'application/javascript; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.png': 'image/png',
   '.svg': 'image/svg+xml',
   '.json': 'application/json',
@@ -18,7 +19,12 @@ const MIME = {
 const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/' || reqPath === '') reqPath = '/index.html';
-  if (reqPath === '/robots') reqPath = '/robots.html';
+  if (reqPath === '/robots') reqPath = '/robots.txt';
+  if (reqPath === '/llms') reqPath = '/llms.txt';
+  if (reqPath === '/llms-full') reqPath = '/llms-full.txt';
+  if (reqPath === '/feed') reqPath = '/feed.xml';
+  if (reqPath === '/manifest') reqPath = '/manifest.webmanifest';
+  if (reqPath === '/humans') reqPath = '/humans.txt';
 
   const filePath = path.join(__dirname, reqPath);
   const ext = path.extname(filePath).toLowerCase();
