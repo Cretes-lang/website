@@ -7,7 +7,7 @@ Minimalist and professional header component for the **Cretes Programming Langua
 - **Typography & Branding**: Clean typographic brand mark (`Cretes`). No logo image or version dependencies.
 - **Theme Switcher**: Instant light & dark theme toggle with custom SVG icons and `localStorage` persistence.
 - **Design Tokens**: Standardized CSS custom properties (`--fillg`, `--bg-header`, etc.) supporting high-contrast accessible layouts.
-- **Navigation**: Clean dropdown hierarchy for documentation, specifications, playground, and community.
+- **Navigation**: Direct access to Docs, Learn, Community, RFCs, Theme Switcher, and Get Started.
 - **Zero-Dependency**: Pure semantic HTML5, Vanilla CSS, and lightweight JavaScript.
 
 ## Preview Locally
