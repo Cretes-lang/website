@@ -54,22 +54,83 @@
   <link rel="author" href="/humans.txt">
   <link rel="sitemap" type="application/xml" title="Sitemap Index" href="/sitemap_index.xml">
 
-  <!-- JSON-LD Structured Data for Search Engines -->
+  <!-- AI & LLM Machine-Readable Documentation Directives -->
+  <link rel="help" type="text/plain" title="Cretes LLM Documentation" href="/llms.txt">
+  <link rel="help" type="text/plain" title="Cretes Full LLM Context Manual" href="/llms-full.txt">
+  <meta name="llm-docs" content="https://cretes.org/llms.txt">
+  <meta name="llm-full-docs" content="https://cretes.org/llms-full.txt">
+
+  <!-- Comprehensive Schema.org JSON-LD Structured Data Graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Cretes",
-    "operatingSystem": "Cross-platform (Linux, macOS, Windows)",
-    "applicationCategory": "DeveloperApplication",
-    "description": "Cretes is a modern compiled systems programming language engineered for uncompromising performance, deterministic memory safety without garbage collection, and developer ergonomics.",
-    "url": "https://cretes.org/",
-    "license": "https://www.apache.org/licenses/LICENSE-2.0",
-    "author": {
-      "@type": "Organization",
-      "name": "Cretes Language Core Team",
-      "url": "https://github.com/Cretes-lang"
-    }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://cretes.org/#software",
+        "name": "Cretes",
+        "alternateName": "Cretes Programming Language",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All (Linux, macOS, Windows, Embedded)",
+        "description": "Cretes is a modern compiled systems programming language engineered for uncompromising performance, deterministic memory safety without garbage collection, and developer ergonomics.",
+        "url": "https://cretes.org/",
+        "softwareVersion": "1.0.0",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "codeRepository": "https://github.com/Cretes-lang/cretes",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@id": "https://cretes.org/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://cretes.org/#organization",
+        "name": "Cretes Language Core Team",
+        "url": "https://github.com/Cretes-lang",
+        "logo": "https://cretes.org/assets/favicon.svg",
+        "sameAs": [
+          "https://github.com/Cretes-lang",
+          "https://github.com/Cretes-lang/cretes"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cretes.org/#website",
+        "url": "https://cretes.org/",
+        "name": "Cretes Programming Language",
+        "description": "Official web portal, specifications, and documentation for the Cretes programming language.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://cretes.org/#organization"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/llms.txt",
+        "name": "Cretes AI-Readable Documentation (llms.txt)",
+        "description": "Curated machine-readable overview of the Cretes programming language specification, architecture, and toolchain for Large Language Models.",
+        "encodingFormat": "text/plain",
+        "url": "https://cretes.org/llms.txt",
+        "about": {
+          "@id": "https://cretes.org/#software"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/llms-full.txt",
+        "name": "Cretes Complete LLM Ingestion Manual (llms-full.txt)",
+        "description": "Comprehensive reference manual formatted for LLM context windows, containing full grammar, type system, ownership rules, and idiomatic examples.",
+        "encodingFormat": "text/plain",
+        "url": "https://cretes.org/llms-full.txt",
+        "about": {
+          "@id": "https://cretes.org/#software"
+        }
+      }
+    ]
   }
   </script>
 
