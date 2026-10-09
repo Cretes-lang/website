@@ -59,36 +59,55 @@ function applyTheme(theme) {
 }
 
 function initMobileDrawer() {
-  const openBtn = document.getElementById('mobile-open');
-  const closeBtn = document.getElementById('mobile-close');
-  const drawer = document.getElementById('mobile-drawer');
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
 
-  if (!drawer) return;
+  if (!toggleBtn || !menu) return;
 
-  function openDrawer() {
-    drawer.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
+  function toggleMenu() {
+    const isOpen = menu.classList.contains('is-open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    toggleBtn.classList.add('is-active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    drawer.setAttribute('aria-hidden', 'true');
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    toggleBtn.classList.remove('is-active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
-  if (openBtn) openBtn.addEventListener('click', openDrawer);
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  toggleBtn.addEventListener('click', toggleMenu);
 
-  // Close when clicking nav links or backdrop
-  const navLinks = drawer.querySelectorAll('.mobile-nav-link, .mobile-btn-primary');
+  // Close when clicking any nav link
+  const navLinks = menu.querySelectorAll('.mobile-menu-link, .mobile-menu-cta');
   navLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', closeMenu);
   });
 
+  // Close on Escape key
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && drawer.classList.contains('open')) {
-      closeDrawer();
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+
+  // Close if window resized above mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 820 && menu.classList.contains('is-open')) {
+      closeMenu();
     }
   });
 }

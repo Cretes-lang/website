@@ -21,7 +21,7 @@
         <span class="brand-name">Cretes</span>
       </a>
 
-      <!-- Navigation Links: Docs | Learn | Community | RFCs -->
+      <!-- Desktop Navigation Links: Docs | Learn | Community | RFCs -->
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li class="nav-item">
@@ -39,7 +39,7 @@
         </ul>
       </nav>
 
-      <!-- Right Actions: Light/Dark Mode | Get Started -->
+      <!-- Right Actions: Light/Dark Mode | Get Started | Mobile Hamburger -->
       <div class="header-actions">
         <!-- Light / Dark Mode Toggle with User's Exact SVGs -->
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
@@ -47,85 +47,64 @@
         </button>
 
         <!-- Primary Action -->
-        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-primary desktop-cta">
           Get Started
         </a>
 
-        <!-- Mobile Menu Trigger -->
-        <button id="mobile-open" class="action-btn mobile-btn" aria-label="Open mobile menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="6" x2="20" y2="6"></line>
-            <line x1="4" y1="18" x2="20" y2="18"></line>
-          </svg>
+        <!-- Minimal Animated Corporate Hamburger Button -->
+        <button id="mobile-toggle" class="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="line line-top"></span>
+          <span class="line line-bottom"></span>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- Full-Width Professional Mobile Menu -->
-  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-header">
-      <a href="/" class="brand-wrap">
-        <span class="brand-name">Cretes</span>
-      </a>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <button id="mobile-theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
-          <!-- Injected via JavaScript -->
-        </button>
-        <button id="mobile-close" class="action-btn" aria-label="Close menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
+  <!-- Full-Width Minimalist Corporate Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <nav aria-label="Mobile Navigation">
+        <ul class="mobile-menu-nav">
+          <li class="mobile-menu-item">
+            <a href="https://github.com/Cretes-lang/spec" class="mobile-menu-link" target="_blank" rel="noopener">
+              <span>Docs</span>
+              <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+          <li class="mobile-menu-item">
+            <a href="https://github.com/Cretes-lang/cretes/tree/main/examples" class="mobile-menu-link" target="_blank" rel="noopener">
+              <span>Learn</span>
+              <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+          <li class="mobile-menu-item">
+            <a href="https://github.com/Cretes-lang" class="mobile-menu-link" target="_blank" rel="noopener">
+              <span>Community</span>
+              <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+          <li class="mobile-menu-item">
+            <a href="https://github.com/Cretes-lang/rfcs" class="mobile-menu-link" target="_blank" rel="noopener">
+              <span>RFCs</span>
+              <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-    <div class="mobile-drawer-body">
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item">
-          <a href="https://github.com/Cretes-lang/spec" class="mobile-nav-link" target="_blank" rel="noopener">
-            <span>Docs</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="https://github.com/Cretes-lang/cretes/tree/main/examples" class="mobile-nav-link" target="_blank" rel="noopener">
-            <span>Learn</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="https://github.com/Cretes-lang" class="mobile-nav-link" target="_blank" rel="noopener">
-            <span>Community</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="https://github.com/Cretes-lang/rfcs" class="mobile-nav-link" target="_blank" rel="noopener">
-            <span>RFCs</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </li>
-      </ul>
-
-      <div class="mobile-drawer-footer">
-        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-btn-primary">
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-menu-cta">
           Get Started
         </a>
-        <div class="mobile-footer-text">
-          Apache-2.0 License &bull; Cretes Language
-        </div>
       </div>
     </div>
   </div>
