@@ -36,6 +36,7 @@ Disallow: /server.cjs
 Disallow: /*.json$
 
 # Sitemaps & Feeds
+Sitemap: https://cretes.org/sitemap_index.xml
 Sitemap: https://cretes.org/sitemap.xml
 Sitemap: https://cretes-lang.github.io/website/sitemap.xml
 
