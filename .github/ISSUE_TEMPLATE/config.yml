@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Community Discussions & Q&A
+    url: https://github.com/orgs/Cretes-lang/discussions
+    about: Ask questions, share ideas, and connect with other Cretes developers.
+  - name: Security Vulnerability Reporting
+    url: https://github.com/Cretes-lang/cretes/security/advisories/new
+    about: Privately report suspected security vulnerabilities and soundness flaws.
+  - name: Language Specification & RFCs
+    url: https://cretes.org/SPECIFICATION.md
+    about: Browse formal language rules and active design RFCs.

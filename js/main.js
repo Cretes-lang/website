@@ -1,5 +1,5 @@
 /**
- * Cretes - Minimalist Header Interactions & Theme Toggle
+ * Cretes - Minimalist Header Interactions, Accessible Theme Toggle & Mobile Navigation
  */
 
 const SUN_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
@@ -30,32 +30,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer();
 });
 
+function a11yAnnounce(msg) {
+  const el = document.getElementById('a11y-announcer');
+  if (el) {
+    el.textContent = '';
+    setTimeout(() => { el.textContent = msg; }, 50);
+  }
+}
+
 function initTheme() {
   const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
   const storedTheme = localStorage.getItem('cretes-theme') || 'dark';
 
-  applyTheme(storedTheme);
+  applyTheme(storedTheme, false);
 
   toggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const nextTheme = current === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
+      applyTheme(nextTheme, true);
     });
   });
 }
 
-function applyTheme(theme) {
+function applyTheme(theme, announce = false) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('cretes-theme', theme);
 
   const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
   toggleBtns.forEach(btn => {
-    // If in dark mode, show Sun icon to switch to light mode
-    // If in light mode, show Moon icon to switch to dark mode
     btn.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
     btn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
   });
+
+  if (announce) {
+    a11yAnnounce(`Switched to ${theme} mode`);
+    if (window.CretesAnalytics && window.CretesAnalytics.track) {
+      window.CretesAnalytics.track('theme_change', { theme });
+    }
+  }
 }
 
 function initMobileDrawer() {
@@ -63,6 +76,8 @@ function initMobileDrawer() {
   const menu = document.getElementById('mobile-menu');
 
   if (!toggleBtn || !menu) return;
+
+  let lastFocusedElement = null;
 
   function toggleMenu() {
     const isOpen = menu.classList.contains('is-open');
@@ -73,12 +88,24 @@ function initMobileDrawer() {
     }
   }
 
+  function getFocusableElements() {
+    return menu.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])');
+  }
+
   function openMenu() {
+    lastFocusedElement = document.activeElement;
     menu.classList.add('is-open');
     toggleBtn.classList.add('is-active');
     toggleBtn.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    // Focus first focusable item in menu
+    const focusables = getFocusableElements();
+    if (focusables.length > 0) {
+      setTimeout(() => focusables[0].focus(), 50);
+    }
+    a11yAnnounce('Navigation menu opened');
   }
 
   function closeMenu() {
@@ -87,9 +114,35 @@ function initMobileDrawer() {
     toggleBtn.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    } else {
+      toggleBtn.focus();
+    }
+    a11yAnnounce('Navigation menu closed');
   }
 
   toggleBtn.addEventListener('click', toggleMenu);
+
+  // Focus trap for accessibility
+  menu.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+
+    const focusables = getFocusableElements();
+    if (!focusables.length) return;
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
 
   // Close when clicking any nav link
   const navLinks = menu.querySelectorAll('.mobile-menu-link, .mobile-menu-cta');
@@ -109,5 +162,5 @@ function initMobileDrawer() {
     if (window.innerWidth > 820 && menu.classList.contains('is-open')) {
       closeMenu();
     }
-  });
+  }, { passive: true });
 }

@@ -4,7 +4,8 @@
   "description": "Official website for the Cretes programming language",
   "scripts": {
     "start": "node server.cjs",
-    "dev": "node server.cjs"
+    "dev": "node server.cjs",
+    "check-links": "node scripts/check-links.cjs"
   },
   "keywords": [
     "cretes",

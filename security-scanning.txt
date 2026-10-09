@@ -1,0 +1,16 @@
+# ==============================================================================
+# CRETES - DEPENDENCY & SECURITY SCANNING SPECIFICATION
+# Canonical URL: https://cretes.org/security-scanning.txt
+# Markdown Source: https://cretes.org/SECURITY-SCANNING.md
+# ==============================================================================
+
+1. CONTINUOUS INTEGRATION & AUDITING
+   - GitHub CodeQL SAST Analysis: Runs on push, pull requests, and weekly Monday schedule.
+   - Dependency Review Action: Enforces zero high/critical CVEs in direct or transitive dependencies.
+   - Gitleaks Secret Scanner: Scans full git history using native binary for leaked keys, tokens, or credentials.
+   - Dependabot: Automated weekly dependency vulnerability alerts and pull requests.
+
+2. POLICY ATTESTATION
+   - Production artifacts must contain zero known critical or high severity vulnerabilities.
+   - Immediate revocation and rotation protocols for detected credentials.
+   - Responsible vulnerability disclosure: security@cretes.org.

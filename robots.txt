@@ -48,6 +48,9 @@ Allow: /CODE_OF_CONDUCT.md
 Allow: /CHECKSUMS.txt
 Allow: /provenance.json
 Allow: /LICENSE
+Allow: /community.txt
+Allow: /contribute.txt
+Allow: /security-scanning.txt
 
 # Disallow Internal & Private Files
 Disallow: /api/

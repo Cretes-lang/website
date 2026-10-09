@@ -193,7 +193,9 @@
   }
   </script>
 
-  <!-- Typography: Bonheur Royale for footer quote -->
+  <!-- Typography & Performance Preconnect / DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
@@ -232,8 +234,18 @@
         </ul>
       </nav>
 
-      <!-- Right Actions: Light/Dark Mode | Get Started | Mobile Hamburger -->
+      <!-- Right Actions: Search | Light/Dark Mode | Get Started | Mobile Hamburger -->
       <div class="header-actions">
+        <!-- Documentation Search Button -->
+        <button id="search-btn" class="search-toggle-btn" data-search-trigger aria-label="Search documentation" aria-haspopup="dialog">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-text">Search</span>
+          <kbd class="search-kbd">⌘K</kbd>
+        </button>
+
         <!-- Light / Dark Mode Toggle with User's Exact SVGs -->
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
           <!-- Injected via JavaScript -->
@@ -246,7 +258,7 @@
         </a>
 
         <!-- Minimal Animated Corporate Hamburger Button -->
-        <button id="mobile-toggle" class="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button id="mobile-toggle" class="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="line line-top"></span>
           <span class="line line-bottom"></span>
         </button>
@@ -258,6 +270,15 @@
   <!-- Full-Width Minimalist Corporate Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <div class="mobile-menu-inner">
+      <!-- Mobile Search Button -->
+      <button class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search documentation...</span>
+      </button>
+
       <nav aria-label="Mobile Navigation">
         <ul class="mobile-menu-nav">
           <li class="mobile-menu-item">
@@ -390,7 +411,47 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Documentation Search Modal / Command Palette -->
+  <div id="search-dialog" class="search-dialog" role="dialog" aria-modal="true" aria-label="Documentation Search" aria-hidden="true">
+    <div id="search-backdrop" class="search-backdrop"></div>
+    <div class="search-container">
+      <div class="search-header">
+        <div class="search-icon-wrap" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <input id="search-input" class="search-input" type="search" placeholder="Search specification, RFCs, and guides..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-controls="search-results" aria-expanded="true">
+        <button id="search-close" class="search-close-btn" aria-label="Close search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="search-results" class="search-results-list" role="listbox"></div>
+      <div class="search-footer">
+        <div class="search-footer-shortcuts">
+          <span class="search-shortcut-item"><kbd class="search-kbd">↑</kbd><kbd class="search-kbd">↓</kbd> Navigate</span>
+          <span class="search-shortcut-item"><kbd class="search-kbd">↵</kbd> Select</span>
+          <span class="search-shortcut-item"><kbd class="search-kbd">Esc</kbd> Close</span>
+        </div>
+        <span>Cretes Docs Search</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen Reader Live Announcements -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="search-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Core Web Vitals, Analytics, Search & Main Scripts -->
+  <script defer src="js/web-vitals.js"></script>
+  <script defer src="js/analytics.js"></script>
+  <script defer src="js/search-data.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 
 </html>

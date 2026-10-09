@@ -1,0 +1,32 @@
+name: Feature Request
+description: Suggest an idea or enhancement for Cretes.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For major language syntax or semantic modifications, please submit an RFC proposal per [RFCs.md](https://cretes.org/RFCs.md).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear description of the limitation or difficulty you are encountering.
+      placeholder: I am frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you would like
+      description: A concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you have considered
+      description: Any alternative solutions or workarounds you've thought about.

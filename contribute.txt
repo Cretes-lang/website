@@ -1,0 +1,56 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - COMMUNITY CONTRIBUTION PATHS
+# Canonical URL: https://cretes.org/contribute.txt
+# Markdown Guide: https://cretes.org/CONTRIBUTING.md
+# Code of Conduct: https://cretes.org/CODE_OF_CONDUCT.md
+# ==============================================================================
+
+WELCOME TO THE CRETES COMMUNITY!
+Cretes is built entirely by open-source contributors and language researchers.
+Whether you are writing your first lines of code or hacking on LLVM compiler backends,
+there is a meaningful path for your contributions.
+
+---
+
+PATHWAY 1: FIRST-TIME CONTRIBUTORS & DOCS
+* Scope: Documentation improvements, typos, language tutorials, code snippets, translation.
+* Entry Points:
+  - Browse issues tagged 'good-first-issue' or 'documentation' on GitHub.
+  - Review https://cretes.org/SPECIFICATION.md for clarity and edge-case documentation.
+  - Add realistic language tour samples in https://github.com/Cretes-lang/cretes/tree/main/examples.
+
+PATHWAY 2: STANDARD LIBRARY & RUNTIME
+* Scope: Core data structures, networking, cryptographic primitives, async channels.
+* Entry Points:
+  - Enhance 'std::collections', 'std::net', and 'std::sync'.
+  - Benchmark async executor throughput and latency.
+  - Write regression tests for boundary conditions.
+
+PATHWAY 3: COMPILER & TYPE SYSTEM
+* Scope: Type inference, borrow checker, non-lexical lifetimes (NLL), MIR passes, LLVM IR codegen.
+* Entry Points:
+  - Fork https://github.com/Cretes-lang/cretes.
+  - Run the test suite: `cargo test --all`.
+  - Tackle compiler crash / ICE (Internal Compiler Error) bugs.
+
+PATHWAY 4: LANGUAGE EVOLUTION & RFCS
+* Scope: Syntactic changes, new keywords, type system enhancements, breaking changes.
+* Entry Points:
+  - Read active proposals in https://cretes.org/RFCs.md.
+  - Participate in Final Comment Period (FCP) deliberations.
+  - Propose new features using the template at https://github.com/Cretes-lang/rfcs.
+
+PATHWAY 5: TOOLING & DEVELOPER ERGONOMICS
+* Scope: Language Server Protocol (LSP), linter, code formatter, build tool.
+* Entry Points:
+  - Improve autocomplete, diagnostics, and hover docs in the Cretes LSP.
+  - Enhance package resolution and lockfile verification.
+
+---
+
+COMMUNICATION & CHANNELS:
+- GitHub Discussions: https://github.com/orgs/Cretes-lang/discussions
+- Code Reviews & PRs: https://github.com/Cretes-lang/cretes/pulls
+- Vulnerability Reporting: security@cretes.org (see https://cretes.org/SECURITY.md)
+- Code of Conduct Inquiries: conduct@cretes.org
+- Official Website: https://cretes.org
