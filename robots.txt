@@ -30,16 +30,25 @@ User-agent: Google-Extended
 User-agent: CCBot
 Allow: /
 
+# Public Machine-Readable Assets
+Allow: /releases.json
+Allow: /ai.txt
+Allow: /ai-policy.txt
+Allow: /llms.txt
+Allow: /llms-full.txt
+
 # Disallow Internal & Private Files
 Disallow: /api/
 Disallow: /server.cjs
-Disallow: /*.json$
 
 # Sitemaps & Feeds
 Sitemap: https://cretes.org/sitemap_index.xml
 Sitemap: https://cretes.org/sitemap.xml
 Sitemap: https://cretes-lang.github.io/website/sitemap.xml
 
-# LLM Context Directives
+# AI Agents, LLM Directives & Machine-Readable Releases
+# AI-Policy: https://cretes.org/ai.txt
 # LLMs-txt: https://cretes.org/llms.txt
 # LLMs-full-txt: https://cretes.org/llms-full.txt
+# Releases-json: https://cretes.org/releases.json
+

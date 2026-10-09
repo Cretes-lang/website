@@ -19,9 +19,24 @@ const MIME = {
 const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/' || reqPath === '') reqPath = '/index.html';
+
+  // Stable Documentation URLs
+  if (reqPath === '/docs' || reqPath === '/docs/' || reqPath === '/docs/stable' || reqPath === '/docs/stable/' || reqPath === '/docs/latest' || reqPath === '/docs/latest/') {
+    res.writeHead(302, {
+      'Location': 'https://github.com/Cretes-lang/spec',
+      'Link': '<https://cretes.org/docs/stable>; rel="canonical"'
+    });
+    res.end('Redirecting to Cretes Stable Specification...');
+    return;
+  }
+
+  // Raw file alias routing
   if (reqPath === '/robots') reqPath = '/robots.txt';
   if (reqPath === '/llms') reqPath = '/llms.txt';
   if (reqPath === '/llms-full') reqPath = '/llms-full.txt';
+  if (reqPath === '/ai') reqPath = '/ai.txt';
+  if (reqPath === '/ai-policy') reqPath = '/ai-policy.txt';
+  if (reqPath === '/releases' || reqPath === '/releases/' || reqPath === '/releases/latest.json') reqPath = '/releases.json';
   if (reqPath === '/feed') reqPath = '/feed.xml';
   if (reqPath === '/manifest') reqPath = '/manifest.webmanifest';
   if (reqPath === '/humans') reqPath = '/humans.txt';
@@ -42,7 +57,9 @@ const server = http.createServer((req, res) => {
     const linkHeaders = [
       `<https://cretes.org${canonicalPath}>; rel="canonical"`,
       `<https://cretes.org/llms.txt>; rel="help"; type="text/plain"`,
-      `<https://cretes.org/llms-full.txt>; rel="help"; type="text/plain"`
+      `<https://cretes.org/llms-full.txt>; rel="help"; type="text/plain"`,
+      `<https://cretes.org/ai.txt>; rel="policy"; type="text/plain"`,
+      `<https://cretes.org/releases.json>; rel="alternate"; type="application/json"`
     ].join(', ');
 
     res.writeHead(200, {
