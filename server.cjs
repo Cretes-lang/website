@@ -39,9 +39,15 @@ const server = http.createServer((req, res) => {
       return;
     }
     const canonicalPath = reqPath === '/index.html' ? '/' : reqPath;
+    const linkHeaders = [
+      `<https://cretes.org${canonicalPath}>; rel="canonical"`,
+      `<https://cretes.org/llms.txt>; rel="help"; type="text/plain"`,
+      `<https://cretes.org/llms-full.txt>; rel="help"; type="text/plain"`
+    ].join(', ');
+
     res.writeHead(200, {
       'Content-Type': MIME[ext] || 'application/octet-stream',
-      'Link': `<https://cretes.org${canonicalPath}>; rel="canonical"`
+      'Link': linkHeaders
     });
     res.end(content);
   });
