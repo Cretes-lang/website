@@ -196,7 +196,7 @@ window.CRETES_SEARCH_INDEX = [
   {
     title: "Terms of Use",
     section: "Legal",
-    url: "/Terms.md",
+    url: "/terms",
     desc: "Terms governing access to and use of the official Cretes website, documentation, and services.",
     keywords: ["terms", "terms of use", "legal", "acceptable use", "disclaimer", "license"]
   }
