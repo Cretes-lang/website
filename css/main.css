@@ -872,6 +872,7 @@ button {
 .badge-security { color: #f87171; border-color: rgba(248, 113, 113, 0.3); }
 .badge-community { color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); }
 .badge-releases { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+.badge-legal { color: #a78bfa; border-color: rgba(167, 139, 250, 0.3); }
 
 .search-item-title {
   font-size: 0.95rem;

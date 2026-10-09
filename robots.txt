@@ -51,6 +51,8 @@ Allow: /LICENSE
 Allow: /community.txt
 Allow: /contribute.txt
 Allow: /security-scanning.txt
+Allow: /Terms.md
+Allow: /terms.txt
 
 # Disallow Internal & Private Files
 Disallow: /api/

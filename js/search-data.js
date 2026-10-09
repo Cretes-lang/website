@@ -192,5 +192,12 @@ window.CRETES_SEARCH_INDEX = [
     url: "/ai.txt",
     desc: "Spawning-standard permissions allowing AI model training, code assistance, and RAG under Apache-2.0.",
     keywords: ["ai.txt", "crawler policy", "spawning", "ai permissions"]
+  },
+  {
+    title: "Terms of Use",
+    section: "Legal",
+    url: "/Terms.md",
+    desc: "Terms governing access to and use of the official Cretes website, documentation, and services.",
+    keywords: ["terms", "terms of use", "legal", "acceptable use", "disclaimer", "license"]
   }
 ];
