@@ -1,315 +1,77 @@
 /**
- * Cretes Programming Language - Main Interactions
+ * Cretes - Minimalist Header Interactions & Theme Toggle
  */
+
+const SUN_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+<g clip-path="url(#clip0_4418_7943)">
+<path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M12 22.96C11.45 22.96 11 22.55 11 22V21.92C11 21.37 11.45 20.92 12 20.92C12.55 20.92 13 21.37 13 21.92C13 22.47 12.55 22.96 12 22.96ZM19.14 20.14C18.88 20.14 18.63 20.04 18.43 19.85L18.3 19.72C17.91 19.33 17.91 18.7 18.3 18.31C18.69 17.92 19.32 17.92 19.71 18.31L19.84 18.44C20.23 18.83 20.23 19.46 19.84 19.85C19.65 20.04 19.4 20.14 19.14 20.14ZM4.86 20.14C4.6 20.14 4.35 20.04 4.15 19.85C3.76 19.46 3.76 18.83 4.15 18.44L4.28 18.31C4.67 17.92 5.3 17.92 5.69 18.31C6.08 18.7 6.08 19.33 5.69 19.72L5.56 19.85C5.37 20.04 5.11 20.14 4.86 20.14ZM22 13H21.92C21.37 13 20.92 12.55 20.92 12C20.92 11.45 21.37 11 21.92 11C22.47 11 22.96 11.45 22.96 12C22.96 12.55 22.55 13 22 13ZM2.08 13H2C1.45 13 1 12.55 1 12C1 11.45 1.45 11 2 11C2.55 11 3.04 11.45 3.04 12C3.04 12.55 2.63 13 2.08 13ZM19.01 5.99C18.75 5.99 18.5 5.89 18.3 5.7C17.91 5.31 17.91 4.68 18.3 4.29L18.43 4.16C18.82 3.77 19.45 3.77 19.84 4.16C20.23 4.55 20.23 5.18 19.84 5.57L19.71 5.7C19.52 5.89 19.27 5.99 19.01 5.99ZM4.99 5.99C4.73 5.99 4.48 5.89 4.28 5.7L4.15 5.56C3.76 5.17 3.76 4.54 4.15 4.15C4.54 3.76 5.17 3.76 5.56 4.15L5.69 4.28C6.08 4.67 6.08 5.3 5.69 5.69C5.5 5.89 5.24 5.99 4.99 5.99ZM12 3.04C11.45 3.04 11 2.63 11 2.08V2C11 1.45 11.45 1 12 1C12.55 1 13 1.45 13 2C13 2.55 12.55 3.04 12 3.04Z" fill="white" style="fill: var(--fillg);"/>
+</g>
+<defs>
+<clipPath id="clip0_4418_7943">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>`;
+
+const MOON_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+<g clip-path="url(#clip0_4418_7940)">
+<path d="M21.53 15.9304C21.37 15.6604 20.92 15.2404 19.8 15.4404C19.18 15.5504 18.55 15.6004 17.92 15.5704C15.59 15.4704 13.48 14.4004 12.01 12.7504C10.71 11.3004 9.90995 9.41036 9.89995 7.37036C9.89995 6.23036 10.12 5.13036 10.57 4.09036C11.01 3.08036 10.7 2.55036 10.48 2.33036C10.25 2.10036 9.70995 1.78036 8.64995 2.22036C4.55995 3.94036 2.02995 8.04036 2.32995 12.4304C2.62995 16.5604 5.52995 20.0904 9.36995 21.4204C10.29 21.7404 11.26 21.9304 12.26 21.9704C12.42 21.9804 12.58 21.9904 12.74 21.9904C16.09 21.9904 19.23 20.4104 21.21 17.7204C21.88 16.7904 21.7 16.2004 21.53 15.9304Z" fill="white" style="fill: var(--fillg);"/>
+</g>
+<defs>
+<clipPath id="clip0_4418_7940">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>`;
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  initHeaderScroll();
-  initCodeWorkbench();
-  initCopyButtons();
-  initSearchModal();
   initMobileDrawer();
 });
 
-/* ==========================================================================
-   Theme Switcher (Dark / Light)
-   ========================================================================== */
 function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const toggleBtn = document.getElementById('theme-toggle');
   const storedTheme = localStorage.getItem('cretes-theme') || 'dark';
 
-  setTheme(storedTheme);
+  applyTheme(storedTheme);
 
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const nextTheme = current === 'dark' ? 'light' : 'dark';
-      setTheme(nextTheme);
+      applyTheme(nextTheme);
     });
   }
 }
 
-function setTheme(theme) {
+function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('cretes-theme', theme);
-  const icon = document.getElementById('theme-icon');
-  if (icon) {
-    if (theme === 'light') {
-      icon.innerHTML = `<path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" fill="currentColor"/>`;
-    } else {
-      icon.innerHTML = `<circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`;
-    }
+
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    // If in dark mode, show Sun icon to switch to light mode
+    // If in light mode, show Moon icon to switch to dark mode
+    toggleBtn.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
+    toggleBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
   }
 }
 
-/* ==========================================================================
-   Header Scroll State
-   ========================================================================== */
-function initHeaderScroll() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-}
-
-/* ==========================================================================
-   Interactive Hero Code Workbench
-   ========================================================================== */
-let activeSampleKey = 'hello';
-
-function initCodeWorkbench() {
-  const codeArea = document.getElementById('workbench-code-area');
-  const tabs = document.querySelectorAll('.code-tab-btn');
-  const runLexBtn = document.getElementById('btn-workbench-lex');
-  const runAstBtn = document.getElementById('btn-workbench-ast');
-  const copyBtn = document.getElementById('btn-workbench-copy');
-  const outputDrawer = document.getElementById('workbench-output');
-  const outputContent = document.getElementById('workbench-output-content');
-  const closeOutputBtn = document.getElementById('btn-close-output');
-
-  if (!codeArea || !window.CRETES_SAMPLES) return;
-
-  function loadSample(key) {
-    activeSampleKey = key;
-    const sample = window.CRETES_SAMPLES[key];
-    if (!sample) return;
-
-    codeArea.innerHTML = window.highlightCretes(sample.code);
-
-    tabs.forEach(t => {
-      if (t.dataset.sample === key) {
-        t.classList.add('active');
-      } else {
-        t.classList.remove('active');
-      }
-    });
-
-    if (outputDrawer) outputDrawer.classList.remove('open');
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      loadSample(tab.dataset.sample);
-    });
-  });
-
-  if (runLexBtn) {
-    runLexBtn.addEventListener('click', () => {
-      const sample = window.CRETES_SAMPLES[activeSampleKey];
-      if (!sample || !window.CretesFrontend) return;
-      const tokens = window.CretesFrontend.lex(sample.code);
-      const formatted = window.CretesFrontend.formatLex(tokens);
-      outputContent.textContent = formatted;
-      outputDrawer.classList.add('open');
-    });
-  }
-
-  if (runAstBtn) {
-    runAstBtn.addEventListener('click', () => {
-      const sample = window.CRETES_SAMPLES[activeSampleKey];
-      if (!sample || !window.CretesFrontend) return;
-      const ast = window.CretesFrontend.parseAst(sample.code);
-      outputContent.textContent = ast;
-      outputDrawer.classList.add('open');
-    });
-  }
-
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      const sample = window.CRETES_SAMPLES[activeSampleKey];
-      if (!sample) return;
-      copyToClipboard(sample.code, "Cretes code copied to clipboard!");
-    });
-  }
-
-  if (closeOutputBtn) {
-    closeOutputBtn.addEventListener('click', () => {
-      outputDrawer.classList.remove('open');
-    });
-  }
-
-  // Initial load
-  loadSample('hello');
-}
-
-/* ==========================================================================
-   Copy to Clipboard Utilities
-   ========================================================================== */
-function initCopyButtons() {
-  const installCopyBtn = document.getElementById('btn-copy-install');
-  if (installCopyBtn) {
-    installCopyBtn.addEventListener('click', () => {
-      const cmd = document.getElementById('install-cmd-text').innerText;
-      copyToClipboard(cmd, "Install command copied!");
-    });
-  }
-}
-
-function copyToClipboard(text, successMsg = "Copied to clipboard!") {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast(successMsg);
-  }).catch(() => {
-    // fallback
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast(successMsg);
-  });
-}
-
-function showToast(message) {
-  let container = document.querySelector('.toast-container');
-  if (!container) {
-    container = document.createElement('div');
-    container.className = 'toast-container';
-    document.body.appendChild(container);
-  }
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>${message}</span>
-  `;
-
-  container.appendChild(toast);
-
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    toast.style.transition = 'all 0.25s ease';
-    setTimeout(() => toast.remove(), 250);
-  }, 2600);
-}
-
-/* ==========================================================================
-   Search Modal (Ctrl+K)
-   ========================================================================== */
-const SEARCH_DATA = [
-  { title: "Getting Started & Toolchain", cat: "Documentation", url: "docs.html#getting-started" },
-  { title: "Phase 4 Syntax Specification", cat: "Specification", url: "docs.html#syntax" },
-  { title: "Memory Borrowing & Provenance", cat: "Features", url: "docs.html#borrowing" },
-  { title: "Result[T, E] & Error Handling", cat: "Language", url: "docs.html#errors" },
-  { title: "Interactive Cretes Playground", cat: "Tool", url: "playground.html" },
-  { title: "Zero-copy Network Packet Parsing", cat: "Examples", url: "docs.html#networking" },
-  { title: "Standard Library (std::io, std::bytes, std::fs)", cat: "StdLib", url: "docs.html#stdlib" },
-  { title: "RFC Governance & Contribution", cat: "Community", url: "community.html" },
-  { title: "Lexer & Parser AST Demonstrations", cat: "Compiler", url: "docs.html#compiler" },
-  { title: "Maintainer & Apache 2.0 License", cat: "About", url: "community.html#governance" }
-];
-
-function initSearchModal() {
-  const modal = document.getElementById('search-modal');
-  const openBtns = document.querySelectorAll('[data-open-search]');
-  const closeBtn = document.getElementById('btn-close-search');
-  const input = document.getElementById('search-input');
-  const resultsList = document.getElementById('search-results');
-
-  if (!modal || !input || !resultsList) return;
-
-  function openModal() {
-    modal.classList.add('open');
-    input.value = '';
-    renderResults(SEARCH_DATA);
-    setTimeout(() => input.focus(), 50);
-  }
-
-  function closeModal() {
-    modal.classList.remove('open');
-  }
-
-  function renderResults(items) {
-    if (items.length === 0) {
-      resultsList.innerHTML = `<li style="padding: 24px; text-align: center; color: var(--text-muted);">No matching Cretes documentation or topics found</li>`;
-      return;
-    }
-
-    resultsList.innerHTML = items.map((item, idx) => `
-      <li class="search-result-item ${idx === 0 ? 'selected' : ''}" onclick="window.location.href='${item.url}'">
-        <div class="search-result-left">
-          <svg class="search-result-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-          </svg>
-          <div>
-            <div class="search-result-title">${item.title}</div>
-            <div class="search-result-cat">${item.cat}</div>
-          </div>
-        </div>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"/>
-        </svg>
-      </li>
-    `).join('');
-  }
-
-  openBtns.forEach(btn => btn.addEventListener('click', openModal));
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  input.addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase().trim();
-    if (!q) {
-      renderResults(SEARCH_DATA);
-      return;
-    }
-    const filtered = SEARCH_DATA.filter(item => 
-      item.title.toLowerCase().includes(q) || item.cat.toLowerCase().includes(q)
-    );
-    renderResults(filtered);
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      if (modal.classList.contains('open')) {
-        closeModal();
-      } else {
-        openModal();
-      }
-    } else if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeModal();
-    }
-  });
-}
-
-/* ==========================================================================
-   Mobile Drawer Navigation
-   ========================================================================== */
 function initMobileDrawer() {
+  const openBtn = document.getElementById('mobile-open');
+  const closeBtn = document.getElementById('mobile-close');
   const drawer = document.getElementById('mobile-drawer');
-  const openBtn = document.getElementById('mobile-menu-btn');
-  const closeBtn = document.getElementById('btn-close-drawer');
 
-  if (!drawer || !openBtn) return;
+  if (!drawer) return;
 
-  openBtn.addEventListener('click', () => {
-    drawer.classList.add('open');
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      drawer.classList.remove('open');
-    });
+  if (openBtn) {
+    openBtn.addEventListener('click', () => drawer.classList.add('open'));
   }
-
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => drawer.classList.remove('open'));
+  }
   drawer.addEventListener('click', (e) => {
-    if (e.target === drawer) {
-      drawer.classList.remove('open');
-    }
+    if (e.target === drawer) drawer.classList.remove('open');
   });
 }
