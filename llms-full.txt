@@ -264,14 +264,23 @@ async fn main() -> Result<(), IoError> {
 
 ---
 
-## 10. Official Resources & Repositories
+## 10. Official Resources & Specifications
 
 - **Language Portal**: https://cretes.org
 - **Core Compiler Repository**: https://github.com/Cretes-lang/cretes
-- **Formal Specifications**: https://github.com/Cretes-lang/spec
-- **RFC Proposals**: https://github.com/Cretes-lang/rfcs
-- **Community Discussions**: https://github.com/orgs/Cretes-lang/discussions
-- **License**: Apache-2.0 License
+- **Formal Language Specification**: https://cretes.org/SPECIFICATION.md
+- **Plaintext Specification**: https://cretes.org/spec.txt
+- **RFC Proposals & Catalog**: https://cretes.org/RFCs.md
+- **Machine-Readable RFCs**: https://cretes.org/rfcs.json
+- **Project Governance**: https://cretes.org/GOVERNANCE.md
+- **Contribution Guidelines**: https://cretes.org/CONTRIBUTING.md
+- **Security Policy (RFC 9116)**: https://cretes.org/SECURITY.md
+- **Code of Conduct**: https://cretes.org/CODE_OF_CONDUCT.md
+- **Machine-Readable Releases**: https://cretes.org/releases.json
+- **Cryptographic SHA256 Checksums**: https://cretes.org/CHECKSUMS.txt
+- **SLSA Provenance Attestation**: https://cretes.org/provenance.json
+- **AI Crawler Policy**: https://cretes.org/ai.txt
+- **License**: Apache-2.0 License (https://cretes.org/LICENSE)
 
 ---
 

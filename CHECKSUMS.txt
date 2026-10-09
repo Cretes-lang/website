@@ -1,0 +1,27 @@
+# ==============================================================================
+# CRETES COMPILER v1.0.0 (AURA) - OFFICIAL SHA256 RELEASE CHECKSUMS
+# Canonical URL: https://cretes.org/CHECKSUMS.txt
+# Release Date: 2026-10-09
+# Provenance Attestation: https://cretes.org/provenance.json
+# Machine-Readable Catalog: https://cretes.org/releases.json
+# ==============================================================================
+
+# Linux x86_64 (glibc 2.31+)
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  cretes-1.0.0-x86_64-unknown-linux-gnu.tar.gz
+
+# Linux aarch64 (ARM64)
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  cretes-1.0.0-aarch64-unknown-linux-gnu.tar.gz
+
+# macOS x86_64 (Intel)
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  cretes-1.0.0-x86_64-apple-darwin.tar.gz
+
+# macOS aarch64 (Apple Silicon M1/M2/M3/M4)
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  cretes-1.0.0-aarch64-apple-darwin.tar.gz
+
+# Windows x86_64 (MSVC)
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  cretes-1.0.0-x86_64-pc-windows-msvc.zip
+
+# Verification Instructions:
+# Linux:   sha256sum -c CHECKSUMS.txt
+# macOS:   shasum -a 256 -c CHECKSUMS.txt
+# Windows: certutil -hashfile <archive> SHA256

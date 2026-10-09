@@ -8,6 +8,7 @@ const MIME = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
+  '.md': 'text/markdown; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
   '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.png': 'image/png',
@@ -43,6 +44,20 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/sitemap_index' || reqPath === '/sitemap-index') reqPath = '/sitemap_index.xml';
   if (reqPath === '/sitemap') reqPath = '/sitemap.xml';
   if (reqPath === '/security') reqPath = '/.well-known/security.txt';
+  if (reqPath === '/spec' || reqPath === '/spec.txt') reqPath = '/spec.txt';
+  if (reqPath === '/specification' || reqPath === '/SPECIFICATION' || reqPath === '/SPECIFICATION.md') reqPath = '/SPECIFICATION.md';
+  if (reqPath === '/rfcs' || reqPath === '/RFCs' || reqPath === '/RFCs.md') reqPath = '/RFCs.md';
+  if (reqPath === '/rfcs.txt') reqPath = '/rfcs.txt';
+  if (reqPath === '/rfcs.json') reqPath = '/rfcs.json';
+  if (reqPath === '/governance' || reqPath === '/GOVERNANCE' || reqPath === '/GOVERNANCE.md') reqPath = '/GOVERNANCE.md';
+  if (reqPath === '/governance.txt') reqPath = '/governance.txt';
+  if (reqPath === '/contributing' || reqPath === '/CONTRIBUTING' || reqPath === '/CONTRIBUTING.md') reqPath = '/CONTRIBUTING.md';
+  if (reqPath === '/security-policy' || reqPath === '/SECURITY' || reqPath === '/SECURITY.md') reqPath = '/SECURITY.md';
+  if (reqPath === '/code-of-conduct' || reqPath === '/CODE_OF_CONDUCT' || reqPath === '/CODE_OF_CONDUCT.md') reqPath = '/CODE_OF_CONDUCT.md';
+  if (reqPath === '/license' || reqPath === '/LICENSE' || reqPath === '/LICENSE.txt') reqPath = '/LICENSE';
+  if (reqPath === '/checksums' || reqPath === '/CHECKSUMS' || reqPath === '/CHECKSUMS.txt' || reqPath === '/SHASUMS256.txt') reqPath = '/CHECKSUMS.txt';
+  if (reqPath === '/provenance' || reqPath === '/provenance.json') reqPath = '/provenance.json';
+  if (reqPath === '/security-scanning' || reqPath === '/SECURITY-SCANNING.md') reqPath = '/SECURITY-SCANNING.md';
 
   const filePath = path.join(__dirname, reqPath);
   const ext = path.extname(filePath).toLowerCase();
@@ -54,6 +69,12 @@ const server = http.createServer((req, res) => {
       return;
     }
     const canonicalPath = reqPath === '/index.html' ? '/' : reqPath;
+    let contentType = MIME[ext];
+    if (!contentType && path.basename(filePath).toUpperCase() === 'LICENSE') {
+      contentType = 'text/plain; charset=utf-8';
+    }
+    contentType = contentType || 'text/plain; charset=utf-8';
+
     const linkHeaders = [
       `<https://cretes.org${canonicalPath}>; rel="canonical"`,
       `<https://cretes.org/llms.txt>; rel="help"; type="text/plain"`,
@@ -63,7 +84,7 @@ const server = http.createServer((req, res) => {
     ].join(', ');
 
     res.writeHead(200, {
-      'Content-Type': MIME[ext] || 'application/octet-stream',
+      'Content-Type': contentType,
       'Link': linkHeaders
     });
     res.end(content);

@@ -59,10 +59,21 @@
   <link rel="help" type="text/plain" title="Cretes LLM Documentation" href="/llms.txt">
   <link rel="help" type="text/plain" title="Cretes Full LLM Context Manual" href="/llms-full.txt">
   <link rel="policy" type="text/plain" title="Cretes AI Crawler Policy" href="/ai.txt">
+  <link rel="license" href="/LICENSE">
+  <link rel="help" type="text/markdown" title="Cretes Language Specification" href="/SPECIFICATION.md">
+  <link rel="help" type="text/markdown" title="Cretes RFC Index" href="/RFCs.md">
+  <link rel="help" type="text/markdown" title="Cretes Governance" href="/GOVERNANCE.md">
+  <link rel="help" type="text/markdown" title="Contributing Guidelines" href="/CONTRIBUTING.md">
+  <link rel="policy" type="text/markdown" title="Security Policy" href="/SECURITY.md">
+  <link rel="help" type="text/plain" title="SHA256 Checksums" href="/CHECKSUMS.txt">
+  <link rel="alternate" type="application/json" title="Release Provenance" href="/provenance.json">
   <meta name="llm-docs" content="https://cretes.org/llms.txt">
   <meta name="llm-full-docs" content="https://cretes.org/llms-full.txt">
   <meta name="ai-policy" content="https://cretes.org/ai.txt">
   <meta name="releases-json" content="https://cretes.org/releases.json">
+  <meta name="language-specification" content="https://cretes.org/SPECIFICATION.md">
+  <meta name="rfc-index" content="https://cretes.org/RFCs.md">
+  <meta name="security-policy" content="https://cretes.org/SECURITY.md">
 
   <!-- Comprehensive Schema.org JSON-LD Structured Data Graph -->
   <script type="application/ld+json">
@@ -133,6 +144,50 @@
         "about": {
           "@id": "https://cretes.org/#software"
         }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/SPECIFICATION.md",
+        "name": "Cretes Language Formal Specification v1.0.0",
+        "description": "Authoritative specification covering syntax, types, affine ownership, borrow checker semantics, and ABI for Cretes.",
+        "encodingFormat": "text/markdown",
+        "url": "https://cretes.org/SPECIFICATION.md",
+        "about": {
+          "@id": "https://cretes.org/#software"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/RFCs.md",
+        "name": "Cretes RFC Index and Evolution Catalog",
+        "description": "Index of Request for Comments (RFCs) governing language design, runtime, and ecosystem proposals.",
+        "encodingFormat": "text/markdown",
+        "url": "https://cretes.org/RFCs.md",
+        "about": {
+          "@id": "https://cretes.org/#software"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/SECURITY.md",
+        "name": "Cretes Security and Coordinated Disclosure Policy",
+        "description": "Official vulnerability reporting standards, SLAs, cryptographic verification, and supported versions.",
+        "encodingFormat": "text/markdown",
+        "url": "https://cretes.org/SECURITY.md",
+        "about": {
+          "@id": "https://cretes.org/#software"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://cretes.org/GOVERNANCE.md",
+        "name": "Cretes Project Governance and Charter",
+        "description": "Consensus model, sub-teams, RFC review lifecycle, and decision-making framework.",
+        "encodingFormat": "text/markdown",
+        "url": "https://cretes.org/GOVERNANCE.md",
+        "about": {
+          "@id": "https://cretes.org/#organization"
+        }
       }
     ]
   }
@@ -162,7 +217,7 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li class="nav-item">
-            <a href="https://github.com/Cretes-lang/spec" class="nav-link" target="_blank" rel="noopener">Docs</a>
+            <a href="/SPECIFICATION.md" class="nav-link">Docs</a>
           </li>
           <li class="nav-item">
             <a href="https://github.com/Cretes-lang/cretes/tree/main/examples" class="nav-link" target="_blank"
@@ -172,7 +227,7 @@
             <a href="https://github.com/Cretes-lang" class="nav-link" target="_blank" rel="noopener">Community</a>
           </li>
           <li class="nav-item">
-            <a href="https://github.com/Cretes-lang/rfcs" class="nav-link" target="_blank" rel="noopener">RFCs</a>
+            <a href="/RFCs.md" class="nav-link">RFCs</a>
           </li>
         </ul>
       </nav>
@@ -206,7 +261,7 @@
       <nav aria-label="Mobile Navigation">
         <ul class="mobile-menu-nav">
           <li class="mobile-menu-item">
-            <a href="https://github.com/Cretes-lang/spec" class="mobile-menu-link" target="_blank" rel="noopener">
+            <a href="/SPECIFICATION.md" class="mobile-menu-link">
               <span>Docs</span>
               <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -234,7 +289,7 @@
             </a>
           </li>
           <li class="mobile-menu-item">
-            <a href="https://github.com/Cretes-lang/rfcs" class="mobile-menu-link" target="_blank" rel="noopener">
+            <a href="/RFCs.md" class="mobile-menu-link">
               <span>RFCs</span>
               <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -272,8 +327,7 @@
         <div class="footer-column">
           <h3 class="footer-heading">Explore</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/Cretes-lang/spec" class="footer-link" target="_blank"
-                rel="noopener">Documentation</a></li>
+            <li><a href="/SPECIFICATION.md" class="footer-link">Documentation</a></li>
             <li><a href="https://github.com/Cretes-lang/cretes" class="footer-link" target="_blank" rel="noopener">Learn
                 Cretes</a></li>
             <li><a href="https://github.com/Cretes-lang/cretes" class="footer-link" target="_blank" rel="noopener">Get
@@ -291,10 +345,8 @@
             </li>
             <li><a href="https://github.com/orgs/Cretes-lang/discussions" class="footer-link" target="_blank"
                 rel="noopener">Discussions</a></li>
-            <li><a href="https://github.com/Cretes-lang/.github/blob/main/CONTRIBUTING.md" class="footer-link"
-                target="_blank" rel="noopener">Contributing</a></li>
-            <li><a href="https://github.com/Cretes-lang/.github/blob/main/CODE_OF_CONDUCT.md" class="footer-link"
-                target="_blank" rel="noopener">Code of Conduct</a></li>
+            <li><a href="/CONTRIBUTING.md" class="footer-link">Contributing</a></li>
+            <li><a href="/CODE_OF_CONDUCT.md" class="footer-link">Code of Conduct</a></li>
           </ul>
         </div>
 
@@ -302,8 +354,7 @@
         <div class="footer-column">
           <h3 class="footer-heading">Development</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/Cretes-lang/rfcs" class="footer-link" target="_blank"
-                rel="noopener">RFCs</a></li>
+            <li><a href="/RFCs.md" class="footer-link">RFCs</a></li>
             <li><a href="https://github.com/Cretes-lang" class="footer-link" target="_blank" rel="noopener">Roadmap</a>
             </li>
             <li><a href="https://github.com/Cretes-lang/cretes/releases" class="footer-link" target="_blank"
@@ -319,12 +370,9 @@
           <ul class="footer-links">
             <li><a href="https://github.com/Cretes-lang/cretes" class="footer-link" target="_blank" rel="noopener">About
                 Cretes</a></li>
-            <li><a href="https://github.com/Cretes-lang/.github/blob/main/GOVERNANCE.md" class="footer-link"
-                target="_blank" rel="noopener">Governance</a></li>
-            <li><a href="https://github.com/Cretes-lang/.github/blob/main/SECURITY.md" class="footer-link"
-                target="_blank" rel="noopener">Security</a></li>
-            <li><a href="https://github.com/Cretes-lang/cretes/blob/main/LICENSE" class="footer-link" target="_blank"
-                rel="noopener">License</a></li>
+            <li><a href="/GOVERNANCE.md" class="footer-link">Governance</a></li>
+            <li><a href="/SECURITY.md" class="footer-link">Security</a></li>
+            <li><a href="/LICENSE" class="footer-link">License</a></li>
           </ul>
         </div>
       </div>

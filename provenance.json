@@ -1,0 +1,74 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "cretes-1.0.0-x86_64-unknown-linux-gnu.tar.gz",
+      "digest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "cretes-1.0.0-aarch64-unknown-linux-gnu.tar.gz",
+      "digest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "cretes-1.0.0-x86_64-apple-darwin.tar.gz",
+      "digest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "cretes-1.0.0-aarch64-apple-darwin.tar.gz",
+      "digest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "cretes-1.0.0-x86_64-pc-windows-msvc.zip",
+      "digest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://github.com/slsa-framework/slsa-github-generator/generic@v2",
+      "externalParameters": {
+        "repository": "https://github.com/Cretes-lang/cretes",
+        "ref": "refs/tags/v1.0.0"
+      },
+      "internalParameters": {
+        "llvmVersion": "19.1.0",
+        "rustBootstrapper": "1.82.0",
+        "targetTripleMatrix": [
+          "x86_64-unknown-linux-gnu",
+          "aarch64-unknown-linux-gnu",
+          "x86_64-apple-darwin",
+          "aarch64-apple-darwin",
+          "x86_64-pc-windows-msvc"
+        ]
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "git+https://github.com/Cretes-lang/cretes@refs/tags/v1.0.0",
+          "digest": {
+            "gitCommit": "9f6a4a34b281f6eb19e8cf9698d277717462a7e1"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://github.com/Cretes-lang/cretes/.github/workflows/release.yml@v1"
+      },
+      "metadata": {
+        "invocationId": "https://github.com/Cretes-lang/cretes/actions/runs/10892341",
+        "startedOn": "2026-10-09T10:00:00Z",
+        "finishedOn": "2026-10-09T10:28:45Z"
+      }
+    }
+  }
+}

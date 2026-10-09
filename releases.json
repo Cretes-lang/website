@@ -6,11 +6,21 @@
   "license": "Apache-2.0",
   "channel": "stable",
   "updated_at": "2026-10-09T12:00:00Z",
+  "checksums_url": "https://cretes.org/CHECKSUMS.txt",
+  "provenance_url": "https://cretes.org/provenance.json",
   "stable_documentation": {
     "latest": "https://cretes.org/docs/latest",
     "stable": "https://cretes.org/docs/stable",
-    "specification": "https://github.com/Cretes-lang/spec",
-    "rfcs": "https://github.com/Cretes-lang/rfcs",
+    "specification": "https://cretes.org/SPECIFICATION.md",
+    "specification_txt": "https://cretes.org/spec.txt",
+    "rfcs": "https://cretes.org/RFCs.md",
+    "rfcs_txt": "https://cretes.org/rfcs.txt",
+    "rfcs_json": "https://cretes.org/rfcs.json",
+    "governance": "https://cretes.org/GOVERNANCE.md",
+    "contributing": "https://cretes.org/CONTRIBUTING.md",
+    "security_policy": "https://cretes.org/SECURITY.md",
+    "code_of_conduct": "https://cretes.org/CODE_OF_CONDUCT.md",
+    "license": "https://cretes.org/LICENSE",
     "llms_txt": "https://cretes.org/llms.txt",
     "llms_full_txt": "https://cretes.org/llms-full.txt"
   },
@@ -21,6 +31,8 @@
     "llvm_version": "19.1.0",
     "changelog_url": "https://github.com/Cretes-lang/cretes/releases/tag/v1.0.0",
     "download_url": "https://github.com/Cretes-lang/cretes/releases",
+    "checksums_url": "https://cretes.org/CHECKSUMS.txt",
+    "provenance_url": "https://cretes.org/provenance.json",
     "artifacts": {
       "x86_64-unknown-linux-gnu": {
         "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-x86_64-unknown-linux-gnu.tar.gz",
