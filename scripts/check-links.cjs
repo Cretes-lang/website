@@ -18,6 +18,7 @@ const FILES_TO_SCAN = [
   'CODE_OF_CONDUCT.md',
   'SECURITY-SCANNING.md',
   'Terms.md',
+  'terms.html',
   'llms.txt',
   'releases.json',
   'robots.txt',
@@ -78,7 +79,10 @@ const SERVER_ALIASES = new Set([
   '/community.txt',
   '/contribute.txt',
   '/terms',
+  '/terms/',
   '/Terms',
+  '/Terms/',
+  '/terms.html',
   '/Terms.md',
   '/terms.md',
   '/terms.txt'

@@ -83,7 +83,9 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/security-scanning.txt') reqPath = '/security-scanning.txt';
   if (reqPath === '/community' || reqPath === '/community.txt') reqPath = '/community.txt';
   if (reqPath === '/contribute' || reqPath === '/contribute.txt') reqPath = '/contribute.txt';
-  if (reqPath === '/terms' || reqPath === '/Terms' || reqPath === '/Terms.md' || reqPath === '/terms.md') reqPath = '/Terms.md';
+  if (reqPath === '/terms' || reqPath === '/terms/' || reqPath === '/Terms' || reqPath === '/Terms/') reqPath = '/terms.html';
+  if (reqPath === '/terms.html') reqPath = '/terms.html';
+  if (reqPath === '/Terms.md' || reqPath === '/terms.md') reqPath = '/Terms.md';
   if (reqPath === '/terms.txt') reqPath = '/terms.txt';
 
   const filePath = path.join(__dirname, reqPath);
@@ -95,7 +97,7 @@ const server = http.createServer((req, res) => {
       res.end('404 Not Found');
       return;
     }
-    const canonicalPath = reqPath === '/index.html' ? '/' : reqPath;
+    const canonicalPath = reqPath === '/index.html' ? '/' : (reqPath === '/terms.html' ? '/terms' : reqPath);
     let contentType = MIME[ext];
     if (!contentType && path.basename(filePath).toUpperCase() === 'LICENSE') {
       contentType = 'text/plain; charset=utf-8';

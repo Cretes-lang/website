@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.cjs",
     "dev": "node server.cjs",
-    "check-links": "node scripts/check-links.cjs"
+    "check-links": "node scripts/check-links.cjs",
+    "verify-terms": "node scripts/verify-terms.cjs"
   },
   "keywords": [
     "cretes",
