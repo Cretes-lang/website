@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "Cretes",
+  "name": "Cretes Programming Language",
+  "repository": "https://github.com/Cretes-lang/cretes",
+  "license": "Apache-2.0",
+  "channel": "stable",
+  "updated_at": "2026-10-09T12:00:00Z",
+  "stable_documentation": {
+    "latest": "https://cretes.org/docs/latest",
+    "stable": "https://cretes.org/docs/stable",
+    "specification": "https://github.com/Cretes-lang/spec",
+    "rfcs": "https://github.com/Cretes-lang/rfcs",
+    "llms_txt": "https://cretes.org/llms.txt",
+    "llms_full_txt": "https://cretes.org/llms-full.txt"
+  },
+  "latest": {
+    "version": "1.0.0",
+    "release_date": "2026-10-09",
+    "codename": "Aura",
+    "llvm_version": "19.1.0",
+    "changelog_url": "https://github.com/Cretes-lang/cretes/releases/tag/v1.0.0",
+    "download_url": "https://github.com/Cretes-lang/cretes/releases",
+    "artifacts": {
+      "x86_64-unknown-linux-gnu": {
+        "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "aarch64-unknown-linux-gnu": {
+        "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-aarch64-unknown-linux-gnu.tar.gz",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "x86_64-apple-darwin": {
+        "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-x86_64-apple-darwin.tar.gz",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "aarch64-apple-darwin": {
+        "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-aarch64-apple-darwin.tar.gz",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "x86_64-pc-windows-msvc": {
+        "url": "https://github.com/Cretes-lang/cretes/releases/download/v1.0.0/cretes-1.0.0-x86_64-pc-windows-msvc.zip",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-09",
+      "status": "stable",
+      "highlights": "Official language launch, LLVM backend, ownership borrow checker, async runtime"
+    }
+  ]
+}

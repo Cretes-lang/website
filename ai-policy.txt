@@ -1,0 +1,30 @@
+# ==============================================================================
+# Cretes Programming Language - AI & Autonomous Agent Policy (ai-policy.txt)
+# Standard: https://github.com/spawning-project/ai.txt
+# Version: 1.0.0
+# Canonical: https://cretes.org/ai-policy.txt
+# ==============================================================================
+
+# User Agent Scopes
+User-agent: *
+
+# Access & Retrieval Permissions
+# AI agents, LLMs, and code assistants are permitted to retrieve documentation,
+# specifications, and public language examples for code assistance and training.
+AI-Model-Training: allow
+AI-Retrieval-Augmented-Generation: allow
+AI-Code-Assistant: allow
+
+# Preferred Ingestion Feeds
+LLM-Context-Summary: https://cretes.org/llms.txt
+LLM-Context-Full: https://cretes.org/llms-full.txt
+Machine-Readable-Releases: https://cretes.org/releases.json
+Feed-RSS: https://cretes.org/feed.xml
+
+# Attribution & Licensing
+License: https://www.apache.org/licenses/LICENSE-2.0
+Attribution-Name: Cretes Programming Language Project
+Attribution-URL: https://cretes.org/
+
+# Rate Limiting & Crawl Delay
+Crawl-delay: 1
