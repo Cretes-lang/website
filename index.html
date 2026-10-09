@@ -3,593 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cretes Programming Language — Fast, Memory-Safe, Deterministic</title>
-  <meta name="description" content="Cretes is a modern compiled systems programming language designed for automation, networking, AI/ML pipelines, and cybersecurity with compile-time borrow safety and zero runtime overhead.">
+  <title>Cretes Programming Language</title>
+  <meta name="description" content="Cretes is a modern compiled systems programming language.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
-  <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-  <!-- Top Announcement Banner -->
-  <div class="announcement-bar">
-    <span class="announcement-badge">Phase 4</span>
-    <span>Cretes Phase 4 Syntax Frontend Preview is now published!</span>
-    <a href="docs.html" class="announcement-link">
-      Explore Syntax &amp; Spec
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
-  </div>
-
-  <!-- Primary Header & Navigation Bar -->
+  <!-- Minimal & Professional Header -->
   <header class="site-header">
-    <div class="container nav-wrapper">
-      <!-- Brand Logo & Title -->
-      <a href="index.html" class="brand-link" aria-label="Cretes Programming Language Home">
-        <div class="brand-logo-wrap">
-          <img src="assets/logo-transparent.png" alt="Cretes Logo" class="brand-logo-img">
-        </div>
-        <span class="brand-title">Cretes</span>
-        <span class="brand-version-badge">v0.4.0-preview</span>
+    <div class="header-container">
+      
+      <!-- Brand (Name Only, No Logo) -->
+      <a href="/" class="brand-wrap" aria-label="Cretes Programming Language">
+        <span class="brand-name">Cretes</span>
+        <span class="brand-badge">v0.4.0</span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
+      <!-- Navigation Links -->
       <nav aria-label="Main Navigation">
-        <ul class="nav-links">
+        <ul class="nav-menu">
           <li class="nav-item">
-            <a href="index.html" class="nav-link active">Overview</a>
-          </li>
-          <li class="nav-item">
-            <a href="docs.html" class="nav-link">
+            <a href="https://github.com/Cretes-lang/spec" class="nav-link" target="_blank" rel="noopener">
               Documentation
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M6 9l6 6 6-6"/>
+              <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
-            <!-- Dropdown Menu -->
             <div class="nav-dropdown">
-              <a href="docs.html#getting-started" class="dropdown-item">
-                <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
-                </svg>
-                <div>
-                  <div class="dropdown-title">Quickstart Guide</div>
-                  <div class="dropdown-desc">Build toolchain and run your first .cretes file</div>
-                </div>
-              </a>
-              <a href="docs.html#syntax" class="dropdown-item">
-                <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                </svg>
-                <div>
-                  <div class="dropdown-title">Phase 4 Language Tour</div>
-                  <div class="dropdown-desc">Borrowing, types, results, and loop semantics</div>
-                </div>
-              </a>
-              <a href="docs.html#stdlib" class="dropdown-item">
-                <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                </svg>
-                <div>
-                  <div class="dropdown-title">Standard Library</div>
-                  <div class="dropdown-desc">std::io, std::bytes, std::fs, std::net</div>
-                </div>
-              </a>
+              <a href="https://github.com/Cretes-lang/cretes" class="dropdown-link" target="_blank" rel="noopener">Quickstart Guide</a>
+              <a href="https://github.com/Cretes-lang/spec" class="dropdown-link" target="_blank" rel="noopener">Phase 4 Language Tour</a>
+              <a href="https://github.com/Cretes-lang/cretes" class="dropdown-link" target="_blank" rel="noopener">Standard Library (std::io, std::bytes)</a>
             </div>
           </li>
           <li class="nav-item">
-            <a href="playground.html" class="nav-link">Playground</a>
+            <a href="https://github.com/Cretes-lang/cretes/tree/main/examples" class="nav-link" target="_blank" rel="noopener">Playground</a>
           </li>
           <li class="nav-item">
-            <a href="#features" class="nav-link">Architecture</a>
+            <a href="https://github.com/Cretes-lang/spec" class="nav-link" target="_blank" rel="noopener">Specification</a>
           </li>
           <li class="nav-item">
-            <a href="community.html" class="nav-link">Community</a>
+            <a href="https://github.com/Cretes-lang/rfcs" class="nav-link" target="_blank" rel="noopener">RFCs</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com/Cretes-lang" class="nav-link" target="_blank" rel="noopener">Community</a>
           </li>
         </ul>
       </nav>
 
-      <!-- Header Tools & Actions -->
+      <!-- Right Actions (Theme Toggle, GitHub, CTA) -->
       <div class="header-actions">
-        <!-- Search Trigger (Ctrl+K) -->
-        <button class="btn-search" data-open-search aria-label="Search documentation">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-          </svg>
-          <span>Search</span>
-          <kbd class="search-kbd">Ctrl K</kbd>
+        <!-- Light / Dark Mode Toggle with User's Exact SVGs -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
+          <!-- Injected via JavaScript -->
         </button>
 
-        <!-- GitHub Stars Link -->
-        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-github" aria-label="Cretes on GitHub">
+        <!-- GitHub Repository Link -->
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="github-link" aria-label="GitHub Repository">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
-          <span>GitHub</span>
-          <span class="star-count">★ Star</span>
         </a>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Dark and Light mode">
-          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5" fill="currentColor"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-
-        <!-- Primary Action CTA -->
-        <a href="docs.html#getting-started" class="btn-primary">
-          <span>Get Started</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
+        <!-- Primary Action -->
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Get Started
         </a>
 
-        <!-- Mobile Drawer Toggle -->
-        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Open mobile menu">
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-open" class="action-btn mobile-btn" aria-label="Open mobile menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main>
-    <section class="hero-section">
-      <div class="hero-glow-orb"></div>
-      <div class="container hero-content">
-        <!-- Release Badge -->
-        <div class="hero-badge-wrap">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            <span>Phase 4 Syntax Specification Candidate Active</span>
-          </div>
-        </div>
-
-        <!-- Main Headline -->
-        <h1 class="hero-title">
-          The Speed of Native Systems.<br>
-          <span class="gradient-text">The Safety of Modern Types.</span>
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="hero-subtitle">
-          Cretes is an open-source programming language engineered for high-throughput automation, network packet inspection, AI/ML tensor preprocessing, and cybersecurity tooling—combining compile-time borrow safety with zero garbage collection pauses.
-        </p>
-
-        <!-- Domain Focus Pills -->
-        <div class="hero-domains-tag">
-          <span class="domain-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            Automation &amp; Tooling
-          </span>
-          <span class="domain-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Zero-Copy Networking
-          </span>
-          <span class="domain-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            AI/ML Preprocessing
-          </span>
-          <span class="domain-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Defensive Cybersecurity
-          </span>
-        </div>
-
-        <!-- Hero Action Buttons -->
-        <div class="hero-cta-group">
-          <a href="docs.html#getting-started" class="btn-primary btn-hero-large">
-            <span>Install Toolchain</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="playground.html" class="btn-secondary btn-hero-large">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-            <span>Try in Playground</span>
-          </a>
-          <a href="https://github.com/Cretes-lang/spec" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-hero-large">
-            <span>Read Phase 4 Spec</span>
-          </a>
-        </div>
-
-        <!-- Quick Install Terminal Bar -->
-        <div class="hero-install-bar">
-          <span class="install-prefix">$</span>
-          <span class="install-cmd" id="install-cmd-text">cargo run --bin cretes-front -- parse main.cretes</span>
-          <button class="btn-copy" id="btn-copy-install" title="Copy to clipboard" aria-label="Copy install command">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Hero Interactive Code Workbench -->
-        <div class="hero-code-workbench" id="workbench">
-          <div class="workbench-header">
-            <!-- Window controls -->
-            <div class="window-dots">
-              <span class="window-dot dot-red"></span>
-              <span class="window-dot dot-yellow"></span>
-              <span class="window-dot dot-green"></span>
-            </div>
-
-            <!-- Example tabs -->
-            <div class="workbench-tabs">
-              <button class="code-tab-btn active" data-sample="hello">01-hello-world.cretes</button>
-              <button class="code-tab-btn" data-sample="packet">12-packet-validation.cretes</button>
-              <button class="code-tab-btn" data-sample="borrowing">10-borrowing.cretes</button>
-              <button class="code-tab-btn" data-sample="numeric">13-numeric-preprocessing.cretes</button>
-              <button class="code-tab-btn" data-sample="automation">11-automation.cretes</button>
-            </div>
-
-            <!-- Workbench action buttons -->
-            <div class="workbench-actions">
-              <button class="btn-tool btn-run" id="btn-workbench-lex" title="Run syntax lexer">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span>Lex Tokens</span>
-              </button>
-              <button class="btn-tool btn-run" id="btn-workbench-ast" title="Parse AST Arena">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                <span>Parse AST</span>
-              </button>
-              <button class="btn-tool" id="btn-workbench-copy" title="Copy Cretes code snippet">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                <span>Copy</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Code Display Area -->
-          <div class="workbench-body">
-            <div class="code-editor-area" id="workbench-code-area">
-              <!-- Rendered via JS -->
-            </div>
-          </div>
-
-          <!-- Live Compiler Output Drawer -->
-          <div class="workbench-output-drawer" id="workbench-output">
-            <div class="output-header">
-              <span>TERMINAL OUTPUT (cretes-front CLI)</span>
-              <button id="btn-close-output" class="btn-tool" style="padding: 2px 8px;">✕ Close</button>
-            </div>
-            <pre class="output-content" id="workbench-output-content"></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Core Features Section -->
-    <section class="section-features" id="features">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">Engineered for Reliability</span>
-          <h2 class="section-title">Why Systems Engineers Choose Cretes</h2>
-          <p class="section-desc">Designed from scratch to satisfy stringent cyber defense and automation standards without sacrificing ergonomics.</p>
-        </div>
-
-        <div class="features-grid">
-          <!-- Card 1 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">Memory Safety Without GC</h3>
-            <p class="feature-text">
-              Cretes enforces compile-time borrow checking with explicit lifetimes (<code class="kwd">from values</code>). Zero garbage collector pauses and deterministic deallocation.
-            </p>
-            <div class="feature-snippet">
-              fn first(val: &amp;Seq[i64]) -&gt; &amp;i64 from val
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">Zero-Cost Abstractions</h3>
-            <p class="feature-text">
-              Direct compilation to native machine code with zero hidden runtime baggage. High-throughput zero-copy slicing for packet capture and stream processing.
-            </p>
-            <div class="feature-snippet">
-              let slice: &amp;Bytes = &amp;(*packet)[0..16];
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">Defensive Result Error Model</h3>
-            <p class="feature-text">
-              No unhandled null references or untracked exceptions. All fallible operations return explicit <code class="typ">Result[T, E]</code> propagated with the ergonomic <code class="kwd">?</code> operator.
-            </p>
-            <div class="feature-snippet">
-              let data = fs::read_bytes("packet.bin")?;
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">AI &amp; Tensor Preprocessing</h3>
-            <p class="feature-text">
-              First-class sequence iterators, fixed-width floating-point vectors (<code class="typ">f32</code>, <code class="typ">f64</code>), and SIMD-friendly continuous layout primitives for deep learning pipelines.
-            </p>
-            <div class="feature-snippet">
-              fn normalize(v: &amp;mut Seq[f64], factor: f64)
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">Phase 4 Arena AST Frontend</h3>
-            <p class="feature-text">
-              Lightning fast compiler frontend with arena-based node allocation, strict token streams, and rich JSON diagnostics for IDE and LSP integration.
-            </p>
-            <div class="feature-snippet">
-              cargo run --bin cretes-front -- parse --json
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="feature-card">
-            <div class="feature-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-            </div>
-            <h3 class="feature-heading">Audited &amp; Minimalist Standard Library</h3>
-            <p class="feature-text">
-              Zero bloat. Modular namespaces (<code class="typ">std::io</code>, <code class="typ">std::bytes</code>, <code class="typ">std::fs</code>, <code class="typ">std::net</code>) with strict governance and Apache 2.0 licensing.
-            </p>
-            <div class="feature-snippet">
-              import std::io; import std::bytes;
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comparison Matrix Section -->
-    <section class="section-comparison" id="comparison">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">Language Matrix</span>
-          <h2 class="section-title">How Cretes Compares</h2>
-          <p class="section-desc">Benchmarking safety characteristics, runtime footprint, and automation capabilities.</p>
-        </div>
-
-        <div class="matrix-table-wrap">
-          <table class="matrix-table">
-            <thead>
-              <tr>
-                <th>Feature / Capability</th>
-                <th class="col-highlight">Cretes</th>
-                <th>Rust</th>
-                <th>Go</th>
-                <th>C++</th>
-                <th>Python</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Compile-Time Memory Safety</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Borrow checked</span></td>
-                <td><span class="badge-yes">✓ Borrow checked</span></td>
-                <td><span class="badge-partial">Runtime GC</span></td>
-                <td><span class="badge-no">✗ Manual / Unsafe</span></td>
-                <td><span class="badge-partial">Runtime GC</span></td>
-              </tr>
-              <tr>
-                <td><strong>Garbage Collector Overhead</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Zero GC</span></td>
-                <td><span class="badge-yes">✓ Zero GC</span></td>
-                <td><span class="badge-partial">GC pauses</span></td>
-                <td><span class="badge-yes">✓ Zero GC</span></td>
-                <td><span class="badge-no">Heavy GC pauses</span></td>
-              </tr>
-              <tr>
-                <td><strong>Explicit Fallible Returns</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Result[T, E] + ?</span></td>
-                <td><span class="badge-yes">✓ Result&lt;T, E&gt;</span></td>
-                <td><span class="badge-partial">(val, err)</span></td>
-                <td><span class="badge-partial">Exceptions / std::expected</span></td>
-                <td><span class="badge-no">Runtime Exceptions</span></td>
-              </tr>
-              <tr>
-                <td><strong>AI / Packet Slicing Ergonomics</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Native Bytes / Seq</span></td>
-                <td><span class="badge-yes">✓ Slices</span></td>
-                <td><span class="badge-partial">Slices</span></td>
-                <td><span class="badge-partial">std::span</span></td>
-                <td><span class="badge-no">Slow byte overhead</span></td>
-              </tr>
-              <tr>
-                <td><strong>Compiler AST Arena &amp; JSON Diagnostics</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Built-in Phase 4</span></td>
-                <td><span class="badge-yes">✓ JSON flags</span></td>
-                <td><span class="badge-no">✗ Standard CLI</span></td>
-                <td><span class="badge-no">✗ Complex Clang</span></td>
-                <td><span class="badge-partial">ast module</span></td>
-              </tr>
-              <tr>
-                <td><strong>Minimal Third-Party Supply Chain</strong></td>
-                <td class="col-highlight"><span class="badge-yes">✓ Zero Third-Party</span></td>
-                <td><span class="badge-partial">Crates ecosystem</span></td>
-                <td><span class="badge-partial">go modules</span></td>
-                <td><span class="badge-no">Complex vcpkg/conan</span></td>
-                <td><span class="badge-no">Vast PyPI deps</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quickstart Callout Section -->
-    <section class="section-features" style="background: var(--bg-surface-elevated); padding: 80px 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-      <div class="container" style="text-align: center; max-width: 760px;">
-        <span class="section-tag">Quickstart</span>
-        <h2 class="section-title">Ready to Experiment with Cretes?</h2>
-        <p class="section-desc" style="margin-bottom: 30px;">
-          The Phase 4 frontend builds on Rust 1.85.1 with zero external dependencies. Inspect token lexing, parse AST arena representations, and run conformance diagnostics.
-        </p>
-        <div class="hero-cta-group">
-          <a href="docs.html#getting-started" class="btn-primary btn-hero-large">
-            <span>Read Step-by-Step Guide</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="playground.html" class="btn-secondary btn-hero-large">
-            <span>Open Browser Playground</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand Info -->
-        <div>
-          <div class="footer-brand-title">
-            <img src="assets/logo-transparent.png" alt="Cretes" style="width: 28px; height: 28px;">
-            <span>Cretes</span>
-          </div>
-          <p class="footer-desc">
-            A fast, memory-safe compiled programming language targeting automation, networking, AI/ML applications, and cybersecurity.
-          </p>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">
-            License: <a href="LICENSE" style="color: var(--brand-accent);">Apache-2.0</a>
-          </div>
-        </div>
-
-        <!-- Documentation Links -->
-        <div>
-          <div class="footer-heading">Documentation</div>
-          <ul class="footer-links">
-            <li><a href="docs.html#getting-started">Getting Started</a></li>
-            <li><a href="docs.html#syntax">Language Tour</a></li>
-            <li><a href="docs.html#borrowing">Memory &amp; Borrowing</a></li>
-            <li><a href="docs.html#stdlib">Standard Library</a></li>
-            <li><a href="docs.html#compiler">Frontend AST</a></li>
-          </ul>
-        </div>
-
-        <!-- Ecosystem & Tools -->
-        <div>
-          <div class="footer-heading">Tooling &amp; Spec</div>
-          <ul class="footer-links">
-            <li><a href="playground.html">Interactive Playground</a></li>
-            <li><a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener">crates-front CLI</a></li>
-            <li><a href="https://github.com/Cretes-lang/spec" target="_blank" rel="noopener">Language Specification</a></li>
-            <li><a href="https://github.com/Cretes-lang/rfcs" target="_blank" rel="noopener">RFC Proposals</a></li>
-            <li><a href="https://github.com/Cretes-lang/website" target="_blank" rel="noopener">Website Repository</a></li>
-          </ul>
-        </div>
-
-        <!-- Community & Policies -->
-        <div>
-          <div class="footer-heading">Community</div>
-          <ul class="footer-links">
-            <li><a href="community.html#contributing">Contributing</a></li>
-            <li><a href="community.html#governance">Governance</a></li>
-            <li><a href="community.html#code-of-conduct">Code of Conduct</a></li>
-            <li><a href="community.html#security">Security Reporting</a></li>
-            <li><a href="https://github.com/Cretes-lang" target="_blank" rel="noopener">GitHub Organization</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>&copy; 2026 Cretes Language Authors. Initial Maintainer: <strong>@krishanth7</strong>.</div>
-        <div>Built for speed, safety, and verifiable systems programming.</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Search Modal Overlay (Ctrl+K) -->
-  <div class="search-modal-backdrop" id="search-modal">
-    <div class="search-modal-card">
-      <div class="search-input-wrapper">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-        </svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Search documentation, syntax, RFCs..." autocomplete="off">
-        <button id="btn-close-search" class="icon-btn" style="width: 28px; height: 28px;" aria-label="Close search">✕</button>
-      </div>
-      <ul class="search-results-list" id="search-results">
-        <!-- Rendered via search JS -->
-      </ul>
-      <div class="search-modal-footer">
-        <div class="modal-shortcuts">
-          <span>Navigate <kbd class="search-kbd">↑</kbd> <kbd class="search-kbd">↓</kbd></span>
-          <span>Select <kbd class="search-kbd">↵</kbd></span>
-        </div>
-        <span>Press <kbd class="search-kbd">Esc</kbd> to exit</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer Navigation -->
-  <div class="mobile-drawer" id="mobile-drawer">
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer">
     <div class="mobile-drawer-content">
       <div>
-        <div class="drawer-header">
-          <a href="index.html" class="brand-link">
-            <img src="assets/logo-transparent.png" alt="Cretes Logo" style="width: 32px; height: 32px;">
-            <span class="brand-title">Cretes</span>
-          </a>
-          <button id="btn-close-drawer" class="icon-btn" aria-label="Close menu">✕</button>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span class="brand-name">Cretes</span>
+          <button id="mobile-close" class="action-btn" aria-label="Close menu">✕</button>
         </div>
-        <ul class="drawer-nav-list">
-          <li><a href="index.html" class="drawer-nav-link active">Overview</a></li>
-          <li><a href="docs.html" class="drawer-nav-link">Documentation</a></li>
-          <li><a href="playground.html" class="drawer-nav-link">Playground</a></li>
-          <li><a href="index.html#features" class="drawer-nav-link">Architecture</a></li>
-          <li><a href="community.html" class="drawer-nav-link">Community</a></li>
-          <li><a href="https://github.com/Cretes-lang/cretes" target="_blank" class="drawer-nav-link">GitHub Repository</a></li>
+        <ul class="drawer-links">
+          <li><a href="https://github.com/Cretes-lang/spec" class="drawer-link" target="_blank">Documentation</a></li>
+          <li><a href="https://github.com/Cretes-lang/cretes/tree/main/examples" class="drawer-link" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/Cretes-lang/spec" class="drawer-link" target="_blank">Specification</a></li>
+          <li><a href="https://github.com/Cretes-lang/rfcs" class="drawer-link" target="_blank">RFCs</a></li>
+          <li><a href="https://github.com/Cretes-lang" class="drawer-link" target="_blank">Community</a></li>
         </ul>
       </div>
       <div>
-        <a href="docs.html#getting-started" class="btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" class="btn-primary" style="width: 100%; text-align: center;">Get Started</a>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/code-samples.js"></script>
-  <script src="js/playground.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
