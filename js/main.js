@@ -31,31 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
   const storedTheme = localStorage.getItem('cretes-theme') || 'dark';
 
   applyTheme(storedTheme);
 
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const nextTheme = current === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
     });
-  }
+  });
 }
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('cretes-theme', theme);
 
-  const toggleBtn = document.getElementById('theme-toggle');
-  if (toggleBtn) {
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  toggleBtns.forEach(btn => {
     // If in dark mode, show Sun icon to switch to light mode
     // If in light mode, show Moon icon to switch to dark mode
-    toggleBtn.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
-    toggleBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
-  }
+    btn.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
+    btn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  });
 }
 
 function initMobileDrawer() {
@@ -65,13 +65,30 @@ function initMobileDrawer() {
 
   if (!drawer) return;
 
-  if (openBtn) {
-    openBtn.addEventListener('click', () => drawer.classList.add('open'));
+  function openDrawer() {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => drawer.classList.remove('open'));
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
-  drawer.addEventListener('click', (e) => {
-    if (e.target === drawer) drawer.classList.remove('open');
+
+  if (openBtn) openBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+
+  // Close when clicking nav links or backdrop
+  const navLinks = drawer.querySelectorAll('.mobile-nav-link, .mobile-btn-primary');
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
   });
 }
