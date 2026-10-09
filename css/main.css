@@ -213,25 +213,6 @@ button {
   transition: fill var(--trans-smooth);
 }
 
-/* GitHub Icon Link */
-.github-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  transition: all var(--trans-fast);
-}
-
-.github-link:hover {
-  color: var(--text-primary);
-  border-color: var(--border-hover);
-  background: var(--bg-header-hover);
-}
-
 /* Primary CTA Button */
 .btn-primary {
   display: inline-flex;
