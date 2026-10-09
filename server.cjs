@@ -25,6 +25,9 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/feed') reqPath = '/feed.xml';
   if (reqPath === '/manifest') reqPath = '/manifest.webmanifest';
   if (reqPath === '/humans') reqPath = '/humans.txt';
+  if (reqPath === '/sitemap_index' || reqPath === '/sitemap-index') reqPath = '/sitemap_index.xml';
+  if (reqPath === '/sitemap') reqPath = '/sitemap.xml';
+  if (reqPath === '/security') reqPath = '/.well-known/security.txt';
 
   const filePath = path.join(__dirname, reqPath);
   const ext = path.extname(filePath).toLowerCase();
