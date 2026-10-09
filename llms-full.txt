@@ -1,0 +1,279 @@
+# Cretes Programming Language - Complete Reference Manual (llms-full.txt)
+
+> Cretes is a modern compiled systems programming language engineered for uncompromising performance, deterministic memory safety without garbage collection, and expressive developer ergonomics.
+
+---
+
+## 1. Executive Summary & Philosophy
+
+Cretes is designed for modern infrastructure, operating systems, cloud runtimes, network daemons, and embedded environments where predictable latency, high throughput, and memory safety are non-negotiable requirements.
+
+### Key Tenets
+1. **Zero-Cost Abstractions**: High-level constructs (pattern matching, iterators, generic interfaces) compile down to optimal machine instructions without hidden runtime indirection.
+2. **Deterministic Memory Safety**: Compile-time verification of ownership, exclusive mutation, and reference lifetimes eliminates use-after-free, double-free, and data races at compile time.
+3. **No Hidden Control Flow**: Operators and language syntax prioritize clarity. Exceptions are replaced by explicit, strongly typed algebraic result types.
+4. **First-Class Concurrency**: Structured concurrency, lightweight asynchronous tasks, and thread-safe channels built directly into standard language abstractions.
+5. **LLVM-Backed Native Binaries**: Direct compilation into optimized native binaries with cross-compilation support across x86_64, aarch64, and RISC-V targets.
+
+---
+
+## 2. Toolchain & CLI Quick Reference
+
+The Cretes toolchain provides an integrated developer environment:
+
+```bash
+# Initialize a new project or library
+cretes new my_service --bin
+cretes new my_library --lib
+
+# Build and verify
+cretes check                 # Fast type & borrow checking
+cretes build                 # Compile debug binary
+cretes build --release       # Compile optimized production binary with LTO
+
+# Run and test
+cretes run                   # Build and execute current package
+cretes test                  # Execute unit and integration tests
+
+# Formatting and documentation
+cretes fmt                   # Opinionated code formatting
+cretes doc --open            # Generate and view HTML documentation
+```
+
+---
+
+## 3. Lexical Structure & Primitives
+
+### Variables & Mutability
+By default, all bindings in Cretes are immutable. Mutability is explicitly declared using `mut`:
+
+```cretes
+let immutable_val: i32 = 42;
+let mut counter: i64 = 0;
+counter += 1;
+```
+
+### Primitive Types
+- **Signed Integers**: `i8`, `i16`, `i32`, `i64`, `i128`, `isize`
+- **Unsigned Integers**: `u8`, `u16`, `u32`, `u64`, `u128`, `usize`
+- **Floating Point**: `f32`, `f64`
+- **Boolean**: `bool` (`true`, `false`)
+- **Characters & Strings**:
+  - `char`: 32-bit Unicode scalar value (`'a'`, `'🦀'`)
+  - `str`: UTF-8 string slice (`"Hello, Cretes"`)
+  - `String`: Owned, growable UTF-8 heap-allocated string buffer
+
+### Compound Types
+- **Tuples**: `(i32, bool, f64)`
+- **Fixed Arrays**: `[u8; 1024]`
+- **Slices**: `&[u8]`
+
+---
+
+## 4. Structures, Enums, & Pattern Matching
+
+### Structs
+```cretes
+pub struct SocketAddr {
+    pub ip: String,
+    pub port: u16,
+}
+
+impl SocketAddr {
+    pub fn new(ip: &str, port: u16) -> Self {
+        Self {
+            ip: ip.to_string(),
+            port,
+        }
+    }
+
+    pub fn is_valid(&self) -> bool {
+        self.port > 0
+    }
+}
+```
+
+### Enums with Associated Values
+```cretes
+pub enum NetworkEvent {
+    Connected(SocketAddr),
+    DataReceived(Vec<u8>),
+    Disconnected { reason: String },
+    Timeout,
+}
+```
+
+### Pattern Matching
+Pattern matching is exhaustive and evaluated at compile time:
+
+```cretes
+fn handle_event(event: NetworkEvent) {
+    match event {
+        NetworkEvent::Connected(addr) => {
+            println("Peer connected from {}:{}", addr.ip, addr.port);
+        }
+        NetworkEvent::DataReceived(payload) => {
+            println("Received {} bytes of data", payload.len());
+        }
+        NetworkEvent::Disconnected { reason } => {
+            println("Connection closed: {}", reason);
+        }
+        NetworkEvent::Timeout => {
+            println("Connection timed out");
+        }
+    }
+}
+```
+
+---
+
+## 5. Ownership, Borrowing, & Lifetimes
+
+Cretes manages memory without a garbage collector through deterministic ownership rules enforced at compile time:
+
+1. Each value in Cretes has an owner variable.
+2. There can only be one owner at a time.
+3. When the owner goes out of scope, the value is automatically dropped (`Drop` trait).
+4. References can be borrowed:
+   - Multiple immutable references (`&T`) OR
+   - Exactly one mutable reference (`&mut T`)
+   - Never both simultaneously, preventing data races and iterator invalidation.
+
+```cretes
+fn process_buffer(buf: &mut Vec<u8>) {
+    buf.push(0xFE);
+}
+
+fn main() {
+    let mut data = Vec::with_capacity(64);
+    process_buffer(&mut data);
+    println("Buffer length: {}", data.len());
+}
+```
+
+---
+
+## 6. Error Handling: Result & Option
+
+Cretes rejects null pointers and unhandled runtime exceptions. Optionality and fallibility are expressed through standard algebraic types:
+
+### Option<T>
+```cretes
+pub enum Option<T> {
+    Some(T),
+    None,
+}
+```
+
+### Result<T, E> & Question Mark Operator (`?`)
+```cretes
+pub enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+
+fn read_config(path: &str) -> Result<String, IoError> {
+    let mut file = File::open(path)?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+```
+
+---
+
+## 7. Traits & Generics
+
+Traits define shared behavior and interfaces across types:
+
+```cretes
+pub trait Codec {
+    fn encode(&self) -> Vec<u8>;
+    fn decode(bytes: &[u8]) -> Result<Self, DecodeError> where Self: Sized;
+}
+
+pub struct Header {
+    pub magic: u32,
+    pub version: u16,
+}
+
+impl Codec for Header {
+    fn encode(&self) -> Vec<u8> {
+        let mut buf = Vec::new();
+        buf.extend_from_slice(&self.magic.to_be_bytes());
+        buf.extend_from_slice(&self.version.to_be_bytes());
+        buf
+    }
+
+    fn decode(bytes: &[u8]) -> Result<Self, DecodeError> {
+        if bytes.len() < 6 {
+            return Err(DecodeError::BufferTooShort);
+        }
+        // Decode logic...
+        Ok(Header { magic: 0x43525453, version: 1 })
+    }
+}
+```
+
+---
+
+## 8. Concurrency & Asynchronous Runtime
+
+Cretes features zero-cost async/await with cooperative task scheduling:
+
+```cretes
+use std::net::TcpListener;
+use std::io::AsyncReadWrite;
+
+async fn handle_client(mut stream: TcpStream) -> Result<(), IoError> {
+    let mut buffer = [0u8; 1024];
+    let bytes_read = stream.read(&mut buffer).await?;
+    stream.write_all(&buffer[..bytes_read]).await?;
+    Ok(())
+}
+
+#[main]
+async fn main() -> Result<(), IoError> {
+    let listener = TcpListener::bind("127.0.0.1:8080").await?;
+    println("Server listening on 127.0.0.1:8080");
+
+    loop {
+        let (stream, _) = listener.accept().await?;
+        spawn(async move {
+            if let Err(e) = handle_client(stream).await {
+                eprintln("Client handler error: {}", e);
+            }
+        });
+    }
+}
+```
+
+---
+
+## 9. Standard Library Overview
+
+- `std::core`: Memory primitives, pointers, atomic operations, casting, marker traits.
+- `std::alloc`: Custom allocators, global heap management, arena allocators.
+- `std::collections`: `Vec`, `HashMap`, `BTreeMap`, `VecDeque`, `BinaryHeap`.
+- `std::io`: Fast buffered I/O, cursor, stream readers and writers.
+- `std::fs`: Native filesystem interaction, directory traversal, file metadata.
+- `std::net`: TCP, UDP, Unix domain sockets, DNS resolution.
+- `std::sync`: `Mutex`, `RwLock`, `Arc`, `AtomicBool`, `mpsc` and `mpmc` channels.
+- `std::time`: Monotonic clocks, durations, instant timestamps.
+- `std::process`: Child process spawning, pipelines, environment variables.
+
+---
+
+## 10. Official Resources & Repositories
+
+- **Language Portal**: https://cretes.org
+- **Core Compiler Repository**: https://github.com/Cretes-lang/cretes
+- **Formal Specifications**: https://github.com/Cretes-lang/spec
+- **RFC Proposals**: https://github.com/Cretes-lang/rfcs
+- **Community Discussions**: https://github.com/orgs/Cretes-lang/discussions
+- **License**: Apache-2.0 License
+
+---
+
+*Stay Curious. Keep Coding.*  
+&copy; 2026 Cretes Language Team.

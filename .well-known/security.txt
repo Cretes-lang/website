@@ -1,0 +1,12 @@
+# ==============================================================================
+# Cretes Programming Language - Security Policy (RFC 9116)
+# ==============================================================================
+
+Contact: mailto:security@cretes.org
+Contact: https://github.com/Cretes-lang/.github/blob/main/SECURITY.md
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://cretes.org/.well-known/security.txt
+Policy: https://github.com/Cretes-lang/.github/blob/main/SECURITY.md
+Hiring: https://cretes.org
+Acknowledgments: https://github.com/Cretes-lang/cretes/security/advisories

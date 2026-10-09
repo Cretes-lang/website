@@ -1,0 +1,17 @@
+/* TEAM */
+  Creator: Cretes Language Core Team
+  Contact: hello@cretes.org
+  GitHub: https://github.com/Cretes-lang
+  Location: Worldwide
+
+/* THANKS */
+  Contributors: All Open Source contributors and RFC authors
+  Community: The Cretes programming language community
+
+/* SITE */
+  Standards: HTML5, CSS3, ECMAScript 2026
+  Components: Vanilla CSS, Accessible Typography (Inter, JetBrains Mono, Bonheur Royale)
+  Hosting: GitHub Pages
+  Language: English
+  Doctype: HTML5
+  IDE: Antigravity

@@ -1,0 +1,17 @@
+{
+  "name": "Cretes Programming Language",
+  "short_name": "Cretes",
+  "description": "A modern compiled systems programming language.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0e",
+  "theme_color": "#0a0b0e",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

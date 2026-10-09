@@ -35,6 +35,10 @@ Disallow: /api/
 Disallow: /server.cjs
 Disallow: /*.json$
 
-# Sitemaps
+# Sitemaps & Feeds
 Sitemap: https://cretes.org/sitemap.xml
 Sitemap: https://cretes-lang.github.io/website/sitemap.xml
+
+# LLM Context Directives
+# LLMs-txt: https://cretes.org/llms.txt
+# LLMs-full-txt: https://cretes.org/llms-full.txt
