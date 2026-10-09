@@ -17,6 +17,7 @@ const FILES_TO_SCAN = [
   'CONTRIBUTING.md',
   'CODE_OF_CONDUCT.md',
   'SECURITY-SCANNING.md',
+  'Terms.md',
   'llms.txt',
   'releases.json',
   'robots.txt',
@@ -75,7 +76,12 @@ const SERVER_ALIASES = new Set([
   '/sitemap.xml',
   '/sitemap_index.xml',
   '/community.txt',
-  '/contribute.txt'
+  '/contribute.txt',
+  '/terms',
+  '/Terms',
+  '/Terms.md',
+  '/terms.md',
+  '/terms.txt'
 ]);
 
 function extractLinks(filePath, content) {

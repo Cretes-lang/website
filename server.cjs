@@ -83,6 +83,8 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/security-scanning.txt') reqPath = '/security-scanning.txt';
   if (reqPath === '/community' || reqPath === '/community.txt') reqPath = '/community.txt';
   if (reqPath === '/contribute' || reqPath === '/contribute.txt') reqPath = '/contribute.txt';
+  if (reqPath === '/terms' || reqPath === '/Terms' || reqPath === '/Terms.md' || reqPath === '/terms.md') reqPath = '/Terms.md';
+  if (reqPath === '/terms.txt') reqPath = '/terms.txt';
 
   const filePath = path.join(__dirname, reqPath);
   const ext = path.extname(filePath).toLowerCase();

@@ -1,0 +1,103 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - TERMS OF USE
+# Effective Date: October 9, 2026
+# Last Updated: October 9, 2026
+# Version: 1.0
+# Canonical URL: https://cretes.org/Terms.md
+# Plaintext Mirror: https://cretes.org/terms.txt
+# ==============================================================================
+
+1. INTRODUCTION
+Welcome to Cretes. Cretes is an open-source programming language project focused
+on language design, compiler engineering, developer tooling, and applications
+involving automation, networking, artificial intelligence and machine learning
+(AI/ML), and cybersecurity. These Terms of Use ("Terms") govern access to and use
+of the official Cretes website, documentation, learning materials, community
+resources, and other services expressly made available by the Cretes project.
+
+2. PROJECT INFORMATION
+- Project Name: Cretes
+- Project Type: Open-Source Programming Language
+- Official GitHub Organization: https://github.com/Cretes-lang
+- Official Email: creteslang@gmail.com
+- Official Website: https://cretes.org
+
+3. ELIGIBILITY AND ACCEPTANCE
+You may use publicly available Cretes resources subject to applicable laws and
+these Terms. If using the Services on behalf of an organization, you represent
+that you have authority to accept these Terms on its behalf.
+
+4. SCOPE OF SERVICES
+The ecosystem includes project information, specifications, tutorials, tooling,
+RFCs, community resources, and source code. Features may be experimental or modified.
+
+5. OPEN-SOURCE SOFTWARE AND LICENSING
+Cretes is open-source. Where specific open-source licenses apply (e.g. Apache-2.0),
+they control your rights to use, copy, modify, distribute, or contribute.
+
+6. ACCEPTABLE USE
+Users must not attempt unauthorized access, disrupt infrastructure, distribute
+malware, impersonate maintainers, or harass community participants.
+
+7. CYBERSECURITY AND SECURITY RESEARCH
+Users are responsible for ensuring that security testing is lawful and authorized.
+Report vulnerabilities to security@cretes.org per published security policies.
+
+8. DOCUMENTATION AND TECHNICAL INFORMATION
+Technical documentation is provided to assist developers. Verify compatibility
+with official release documentation.
+
+9. COMMUNITY PARTICIPATION
+Governed by Code of Conduct (https://cretes.org/CODE_OF_CONDUCT.md) and
+Contribution Guidelines (https://cretes.org/CONTRIBUTING.md).
+
+10. CONTRIBUTIONS AND RFCS
+Original contributions are subject to repository licensing and contribution rules.
+
+11. INTELLECTUAL PROPERTY AND BRANDING
+Cretes name and visual branding are protected by applicable intellectual property laws.
+
+12. THIRD-PARTY SERVICES
+Governed by their respective terms and privacy policies.
+
+13. PRIVACY AND DATA PROTECTION
+Handled per applicable privacy policies and data protection regulations.
+
+14. SERVICE AVAILABILITY
+Services provided without availability guarantees; subject to maintenance.
+
+15. EXPERIMENTAL SOFTWARE
+Experimental builds should not be assumed suitable for safety-critical environments.
+
+16. DISCLAIMER OF WARRANTIES
+Services provided "AS IS" and "AS AVAILABLE" to the maximum extent permitted by law.
+
+17. LIMITATION OF LIABILITY
+Operators and contributors will not be liable for indirect, incidental, or consequential damages.
+
+18. NO PROFESSIONAL ADVICE
+Documentation is for educational/technical purposes; not professional legal advice.
+
+19. TERMINATION OF ACCESS
+Access to interactive services may be restricted for violations of these Terms.
+
+20. CHANGES TO TERMS
+Terms may be revised with an updated "Last Updated" date.
+
+21. GOVERNING LAW
+Governed by the laws of India. Jurisdiction: Competent courts in India.
+
+22. SEVERABILITY
+Unenforceable provisions do not invalidate remaining sections.
+
+23. ENTIRE AGREEMENT
+These Terms govern use of affected Services without replacing open-source licenses.
+
+24. CONTACT INFORMATION
+- Project: Cretes Programming Language
+- Email: creteslang@gmail.com
+- GitHub: https://github.com/Cretes-lang
+- Website: https://cretes.org
+
+Cretes — Build Different.
+Craft On!
