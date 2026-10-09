@@ -411,12 +411,41 @@ button {
   padding: 0 24px;
 }
 
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-left {
+  flex-shrink: 0;
+  max-width: 320px;
+}
+
+/* Specific custom font for footer quote only */
+.bonheur-royale-regular {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-tagline {
+  font-size: 2.35rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.01em;
+  user-select: none;
+}
+
 .footer-columns {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--border-subtle);
+  gap: 36px;
+  flex-grow: 1;
 }
 
 .footer-heading {
@@ -479,6 +508,13 @@ button {
   opacity: 0.4;
 }
 
+@media (max-width: 1024px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
 @media (max-width: 820px) {
   .footer-columns {
     grid-template-columns: repeat(2, 1fr);
@@ -487,6 +523,9 @@ button {
 }
 
 @media (max-width: 520px) {
+  .footer-tagline {
+    font-size: 2rem;
+  }
   .footer-columns {
     grid-template-columns: 1fr;
     gap: 28px;
