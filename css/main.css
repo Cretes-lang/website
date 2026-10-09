@@ -62,7 +62,7 @@ button {
   gap: 20px;
 }
 
-/* Brand Section (Names Only, No Logo) */
+/* Brand Section (Names Only, No Logo, No Version) */
 .brand-wrap {
   display: flex;
   align-items: center;
@@ -75,17 +75,6 @@ button {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text-brand);
-}
-
-.brand-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  background: var(--bg-badge);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
 }
 
 /* Navigation Links */
