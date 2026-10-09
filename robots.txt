@@ -1,0 +1,40 @@
+# ==============================================================================
+# Cretes Programming Language - robots.txt
+# Official Crawler & Indexing Directives
+# Repository: https://github.com/Cretes-lang/website
+# ==============================================================================
+
+# Default Rules for All Web Crawlers
+User-agent: *
+Allow: /
+
+# Major Search Engine Crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Slurp
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+
+# AI Crawlers & Research Agents
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Applebot
+User-agent: Google-Extended
+User-agent: CCBot
+Allow: /
+
+# Disallow Internal & Private Files
+Disallow: /api/
+Disallow: /server.cjs
+Disallow: /*.json$
+
+# Sitemaps
+Sitemap: https://cretes.org/sitemap.xml
+Sitemap: https://cretes-lang.github.io/website/sitemap.xml
