@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="cretes-liquid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ab8efe" />
+      <stop offset="100%" stop-color="#936cf8" />
+    </linearGradient>
+    <linearGradient id="cretes-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bda7fe" />
+      <stop offset="100%" stop-color="#a081fe" />
+    </linearGradient>
+    <filter id="cretes-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Transform group rotated roughly 35 degrees around flask center -->
+  <g transform="translate(160, 160) rotate(34) translate(-160, -160)">
+    <!-- Flask Lip / Rim -->
+    <rect x="135" y="44" width="50" height="15" rx="7.5" fill="url(#cretes-glass)" />
+
+    <!-- Flask Neck & Outline Body -->
+    <path d="M 146 59 
+             L 146 112 
+             L 86 218 
+             C 80 229, 88 242, 101 242 
+             L 219 242 
+             C 232 242, 240 229, 234 218 
+             L 174 112 
+             L 174 59 
+             Z" 
+          stroke="url(#cretes-glass)" 
+          stroke-width="14" 
+          stroke-linejoin="round" 
+          stroke-linecap="round"
+          fill="none" />
+
+    <!-- Liquid inside flask -->
+    <path d="M 104 186 
+             L 216 186 
+             L 225 214 
+             C 228 221, 223 230, 215 230 
+             L 105 230 
+             C 97 230, 92 221, 95 214 
+             Z" 
+          fill="url(#cretes-liquid)" />
+
+    <!-- Subtle meniscus highlight -->
+    <path d="M 106 186 Q 160 190 214 186" 
+          stroke="rgba(255, 255, 255, 0.45)" 
+          stroke-width="3" 
+          stroke-linecap="round" />
+  </g>
+</svg>
