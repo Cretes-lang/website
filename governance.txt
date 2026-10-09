@@ -1,0 +1,31 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - PROJECT GOVERNANCE
+# Canonical URL: https://cretes.org/governance.txt
+# Markdown Source: https://cretes.org/GOVERNANCE.md
+# ==============================================================================
+
+1. GUIDING PRINCIPLES
+   - Memory safety and zero-overhead performance without GC are foundational.
+   - Stability without stagnation: strong backwards compatibility guarantees.
+   - Open, public collaboration across all decisions and RFC discussions.
+   - Inclusive, respectful community governed by the Code of Conduct.
+
+2. TEAM ORGANIZATION
+   - Core Team: Overall project direction, release cadence, final arbitration.
+   - Language Design Team: Syntax, type system, borrow checker, RFC stewardship.
+   - Compiler & Runtime Team: AST/MIR, LLVM backend, optimizations, async runtime.
+   - Library & Ecosystem Team: Standard library (std/core), package management.
+   - Security & Infrastructure Team: Vulnerability triage, CI/CD, signing keys.
+
+3. DECISION-MAKING & RFC PROCESS
+   - Rough consensus model on all technical discussions.
+   - Final Comment Period (FCP): 10 business days before merging/closing RFCs.
+   - Voting: Two-thirds supermajority required if consensus fails; Core Team arbitrates deadlocks.
+
+4. MEMBERSHIP & EMERITUS
+   - Team members are nominated based on technical contributions and values.
+   - Departing members receive Emeritus status with permanent recognition.
+
+CONTACT:
+Governance inquiries: governance@cretes.org
+Website: https://cretes.org

@@ -1,0 +1,54 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - FORMAL SPECIFICATION v1.0.0 (AURA)
+# Canonical URL: https://cretes.org/spec.txt
+# Markdown Source: https://cretes.org/SPECIFICATION.md
+# License: Apache-2.0
+# ==============================================================================
+
+1. INTRODUCTION AND ARCHITECTURE
+   Cretes is a compiled, statically typed systems programming language with
+   guaranteed memory safety without a garbage collector. Execution is based
+   on affine type ownership, non-lexical lifetimes, and explicit borrow checking.
+   Backend targets LLVM 19+ producing native machine code for Linux, macOS,
+   and Windows.
+
+2. LEXICAL GRAMMAR
+   - Encoding: UTF-8 strictly required.
+   - Comments: Line comments start with '//'; block comments delimited by '/*' and '*/' (nesting permitted).
+   - Identifiers: [a-zA-Z_][a-zA-Z0-9_]* (or raw r#<keyword>).
+   - Core Keywords:
+     as, async, await, break, const, continue, crate, dyn, else, enum,
+     extern, false, fn, for, if, impl, in, let, loop, match, mod,
+     mut, pub, ref, return, Self, self, static, struct, trait, true,
+     type, unsafe, use, where, while.
+
+3. TYPE SYSTEM AND PRIMITIVES
+   - Numeric Types: i8, i16, i32, i64, i128, isize; u8, u16, u32, u64, u128, usize.
+   - Floats: f32, f64 (IEEE 754-2008).
+   - Booleans: bool (1 byte, 0 or 1).
+   - Characters: char (32-bit Unicode scalar).
+   - Strings: str (unsized UTF-8 sequence), &str (borrowed slice).
+   - Slices: [T] and array [T; N].
+   - Product Types: struct Point { x: f64, y: f64 }.
+   - Sum Types: enum Option<T> { Some(T), None }, enum Result<T, E> { Ok(T), Err(E) }.
+
+4. AFFINE OWNERSHIP AND BORROWING
+   - Every value has exactly one owner binding at any runtime point.
+   - Moving a binding invalidates the source unless type implements Copy.
+   - Borrow Rules:
+     * Any number of immutable references (&T), OR
+     * Exactly one mutable reference (&mut T) at any given program point.
+   - Data race freedom is mathematically guaranteed at compile time.
+
+5. ASYNC AND CONCURRENCY
+   - 'async fn' desugars into zero-allocation stackless state machines.
+   - Cooperative yielding via '.await'.
+   - Thread safety enforced via Send and Sync marker traits.
+
+6. C INTEROPERABILITY (FFI)
+   - 'extern "C"' defines foreign symbols using standard platform C ABI.
+   - Raw pointers (*const T, *mut T) and unsafe operations require 'unsafe' blocks.
+
+7. COMPLIANCE REQUIREMENT
+   Conforming compilers MUST pass 100% of the conformance test suite published at:
+   https://github.com/Cretes-lang/spec

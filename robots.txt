@@ -30,12 +30,24 @@ User-agent: Google-Extended
 User-agent: CCBot
 Allow: /
 
-# Public Machine-Readable Assets
+# Public Machine-Readable Assets & Specifications
 Allow: /releases.json
 Allow: /ai.txt
 Allow: /ai-policy.txt
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /SPECIFICATION.md
+Allow: /spec.txt
+Allow: /RFCs.md
+Allow: /rfcs.txt
+Allow: /rfcs.json
+Allow: /CONTRIBUTING.md
+Allow: /SECURITY.md
+Allow: /GOVERNANCE.md
+Allow: /CODE_OF_CONDUCT.md
+Allow: /CHECKSUMS.txt
+Allow: /provenance.json
+Allow: /LICENSE
 
 # Disallow Internal & Private Files
 Disallow: /api/

@@ -1,0 +1,45 @@
+# ==============================================================================
+# CRETES PROGRAMMING LANGUAGE - RFC INDEX (REQUEST FOR COMMENTS)
+# Canonical URL: https://cretes.org/rfcs.txt
+# Repository: https://github.com/Cretes-lang/rfcs
+# Machine-Readable JSON: https://cretes.org/rfcs.json
+# ==============================================================================
+
+PROCESS LIFECYCLE:
+0. Proposed (Draft PR submitted)
+1. Under Review (Active community & sub-team discussion)
+2. Final Comment Period (FCP - 10 day window)
+3. Accepted (Merged into RFC tree; awaiting/under implementation)
+4. Stabilized (Feature verified and enabled in stable compiler)
+5. Closed/Deferred (Superseded or withdrawn)
+
+CATALOG OF FOUNDATIONAL RFCS:
+- RFC 0001: Cretes RFC and Evolution Governance Process [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0001-rfc-process.md
+
+- RFC 0002: Affine Ownership & Non-Lexical Lifetimes [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0002-linear-ownership.md
+
+- RFC 0003: First-Class Algebraic Data Types & Exhaustive Match [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0003-pattern-matching.md
+
+- RFC 0004: Zero-Cost Async/Await & Structured Concurrency [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0004-async-runtime.md
+
+- RFC 0005: Package Registry & Deterministic Module Resolution [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0005-package-manager.md
+
+- RFC 0006: Direct C ABI Interoperability & Unsafe Blocks [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0006-c-abi-ffi.md
+
+- RFC 0007: Trait-Based Generics with Static Monomorphization [Status: Stabilized]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0007-trait-generics.md
+
+- RFC 0008: Compile-Time Constant Evaluation Engine (const fn) [Status: Accepted]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0008-const-eval.md
+
+- RFC 0009: Portable SIMD Vector Primitives [Status: Under Review]
+  URL: https://github.com/Cretes-lang/rfcs/blob/main/text/0009-simd-intrinsics.md
+
+SUBMITTING:
+Fork https://github.com/Cretes-lang/rfcs, copy template to text/, and open PR.

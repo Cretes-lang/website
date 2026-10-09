@@ -1,12 +1,15 @@
 # ==============================================================================
 # Cretes Programming Language - Security Policy (RFC 9116)
+# Canonical URL: https://cretes.org/.well-known/security.txt
+# Markdown Policy: https://cretes.org/SECURITY.md
 # ==============================================================================
 
 Contact: mailto:security@cretes.org
-Contact: https://github.com/Cretes-lang/.github/blob/main/SECURITY.md
+Contact: https://github.com/Cretes-lang/cretes/security/advisories/new
 Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: en
 Canonical: https://cretes.org/.well-known/security.txt
-Policy: https://github.com/Cretes-lang/.github/blob/main/SECURITY.md
+Policy: https://cretes.org/SECURITY.md
 Hiring: https://cretes.org
 Acknowledgments: https://github.com/Cretes-lang/cretes/security/advisories
+Encryption: https://cretes.org/pgp-key.txt

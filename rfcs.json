@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "Cretes",
+  "repository": "https://github.com/Cretes-lang/rfcs",
+  "updated_at": "2026-10-09T12:00:00Z",
+  "rfcs": [
+    {
+      "number": 1,
+      "title": "Cretes RFC and Evolution Governance Process",
+      "category": "Governance",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0001-rfc-process.md",
+      "stabilized_date": "2026-01-15"
+    },
+    {
+      "number": 2,
+      "title": "Affine Ownership & Non-Lexical Lifetimes",
+      "category": "Language Core",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0002-linear-ownership.md",
+      "stabilized_date": "2026-03-22"
+    },
+    {
+      "number": 3,
+      "title": "First-Class Algebraic Data Types & Exhaustive Match",
+      "category": "Language Core",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0003-pattern-matching.md",
+      "stabilized_date": "2026-05-10"
+    },
+    {
+      "number": 4,
+      "title": "Zero-Cost Async/Await & Structured Concurrency",
+      "category": "Runtime / Lib",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0004-async-runtime.md",
+      "stabilized_date": "2026-07-04"
+    },
+    {
+      "number": 5,
+      "title": "Package Registry & Deterministic Module Resolution",
+      "category": "Tooling",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0005-package-manager.md",
+      "stabilized_date": "2026-08-18"
+    },
+    {
+      "number": 6,
+      "title": "Direct C ABI Interoperability & Unsafe Blocks",
+      "category": "Language Core",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0006-c-abi-ffi.md",
+      "stabilized_date": "2026-09-01"
+    },
+    {
+      "number": 7,
+      "title": "Trait-Based Generics with Static Monomorphization",
+      "category": "Language Core",
+      "status": "Stabilized",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0007-trait-generics.md",
+      "stabilized_date": "2026-09-25"
+    },
+    {
+      "number": 8,
+      "title": "Compile-Time Constant Evaluation Engine (const fn)",
+      "category": "Compiler",
+      "status": "Accepted",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0008-const-eval.md",
+      "accepted_date": "2026-10-02"
+    },
+    {
+      "number": 9,
+      "title": "Portable SIMD Vector Primitives",
+      "category": "Standard Lib",
+      "status": "Under Review",
+      "url": "https://github.com/Cretes-lang/rfcs/blob/main/text/0009-simd-intrinsics.md"
+    }
+  ]
+}

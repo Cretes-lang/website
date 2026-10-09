@@ -5,7 +5,8 @@
 ## Overview & Core Documentation
 - [Official Website](https://cretes.org): Project portal, documentation gateway, and community hubs.
 - [GitHub Repository](https://github.com/Cretes-lang/cretes): Compiler implementation, CLI toolchain, and standard library source.
-- [Language Specification](https://github.com/Cretes-lang/spec): Formal grammar, type system, ownership semantics, and memory model.
+- [Language Specification](https://cretes.org/SPECIFICATION.md): Formal grammar, type system, ownership semantics, and memory model.
+- [Language Specification (Plaintext)](https://cretes.org/spec.txt): Raw plaintext mirror of the language specification.
 - [Language Tour & Examples](https://github.com/Cretes-lang/cretes/tree/main/examples): Real-world code examples demonstrating concurrency, memory management, and data structures.
 - [Getting Started Guide](https://github.com/Cretes-lang/cretes): Installation instructions, toolchain configuration, and Hello World walkthrough.
 
@@ -16,11 +17,18 @@
 - **Modern Concurrency**: First-class async/await runtime, channels, and structured concurrency preventing data races at compile time.
 - **Modern Toolchain**: Integrated package management, formatting, linting, testing, and documentation generation out of the box.
 
-## Ecosystem & Community
-- [RFC Process & Proposals](https://github.com/Cretes-lang/rfcs): Technical design proposals, language changes, and evolutionary RFCs.
-- [Community Discussions](https://github.com/orgs/Cretes-lang/discussions): Questions, architecture discussions, and development forums.
-- [Contribution Guidelines](https://github.com/Cretes-lang/.github/blob/main/CONTRIBUTING.md): How to submit patches, compiler tests, and bug fixes.
-- [Security Policy](https://github.com/Cretes-lang/.github/blob/main/SECURITY.md): Vulnerability reporting, security disclosures, and policies.
+## Ecosystem, Governance & Security
+- [RFC Process & Catalog](https://cretes.org/RFCs.md): Technical design proposals, language changes, and evolutionary RFCs.
+- [RFC Index (JSON)](https://cretes.org/rfcs.json): Machine-readable RFC index and metadata.
+- [Project Governance](https://cretes.org/GOVERNANCE.md): Project leadership, sub-teams, and consensus decision-making model.
+- [Contribution Guidelines](https://cretes.org/CONTRIBUTING.md): How to submit patches, compiler tests, and bug fixes.
+- [Security Policy](https://cretes.org/SECURITY.md): Vulnerability reporting, security disclosures, and RFC 9116 metadata.
+- [Code of Conduct](https://cretes.org/CODE_OF_CONDUCT.md): Contributor Covenant v2.1 community standards.
+- [License](https://cretes.org/LICENSE): Official Apache-2.0 open source license.
+- [Machine-Readable Releases](https://cretes.org/releases.json): JSON metadata of binary artifacts and compiler releases.
+- [Release Checksums](https://cretes.org/CHECKSUMS.txt): Cryptographic SHA256 checksums for release distributions.
+- [Supply Chain Provenance](https://cretes.org/provenance.json): SLSA v1.0 Level 3 build provenance attestation.
+- [AI Crawler Policy](https://cretes.org/ai.txt): Machine-readable crawler permissions and ingestion endpoints.
 
 ## Full LLM Ingestion
 - [llms-full.txt](https://cretes.org/llms-full.txt): Complete consolidated language manual, full grammar specifications, standard library overview, and comprehensive code samples in a single ingestion-ready file.
