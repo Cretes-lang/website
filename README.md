@@ -4,7 +4,7 @@ Minimalist and professional header component for the **Cretes Programming Langua
 
 ## Features
 
-- **Typography & Branding**: Clean typographic mark (`Cretes`) with Phase version badge (`v0.4.0`). No image logo dependencies.
+- **Typography & Branding**: Clean typographic brand mark (`Cretes`). No logo image or version dependencies.
 - **Theme Switcher**: Instant light & dark theme toggle with custom SVG icons and `localStorage` persistence.
 - **Design Tokens**: Standardized CSS custom properties (`--fillg`, `--bg-header`, etc.) supporting high-contrast accessible layouts.
 - **Navigation**: Clean dropdown hierarchy for documentation, specifications, playground, and community.
