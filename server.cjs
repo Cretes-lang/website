@@ -38,7 +38,11 @@ const server = http.createServer((req, res) => {
       res.end('404 Not Found');
       return;
     }
-    res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
+    const canonicalPath = reqPath === '/index.html' ? '/' : reqPath;
+    res.writeHead(200, {
+      'Content-Type': MIME[ext] || 'application/octet-stream',
+      'Link': `<https://cretes.org${canonicalPath}>; rel="canonical"`
+    });
     res.end(content);
   });
 });
