@@ -1,7 +1,7 @@
 {
   "name": "cretes-website",
-  "version": "0.4.0",
-  "description": "Official website and documentation portal for the Cretes programming language",
+  "private": true,
+  "description": "Official website for the Cretes programming language",
   "scripts": {
     "start": "node server.cjs",
     "dev": "node server.cjs"
