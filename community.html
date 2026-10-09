@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community &amp; Governance — Cretes Programming Language</title>
+  <meta name="description" content="Cretes community guidelines, RFC evolution lifecycle, governance standards, open source policies, and contribution roadmap.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Primary Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-link" aria-label="Cretes Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" class="brand-logo-img">
+        </div>
+        <span class="brand-title">Cretes</span>
+        <span class="brand-version-badge">Community</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li>
+          <li class="nav-item"><a href="docs.html" class="nav-link">Documentation</a></li>
+          <li class="nav-item"><a href="playground.html" class="nav-link">Playground</a></li>
+          <li class="nav-item"><a href="index.html#features" class="nav-link">Architecture</a></li>
+          <li class="nav-item"><a href="community.html" class="nav-link active">Community</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-search" data-open-search aria-label="Search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span>Search</span>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" fill="currentColor"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <a href="https://github.com/Cretes-lang" target="_blank" rel="noopener" class="btn-github">
+          <span>Cretes-lang Org</span>
+        </a>
+
+        <a href="docs.html#getting-started" class="btn-primary">
+          <span>Get Started</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="page-hero-banner">
+    <div class="container">
+      <h1 class="page-hero-title">Cretes Community &amp; Governance</h1>
+      <p class="page-hero-desc">
+        A transparent, open-source language evolution process rooted in formal RFC reviews, defensive cybersecurity practices, and peer collaboration.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="container" style="padding-bottom: 80px;">
+    <!-- RFC Evolution Process -->
+    <div class="section-title-wrap" style="text-align: left; margin-bottom: 30px;">
+      <span class="section-tag">RFC Process</span>
+      <h2 class="section-title">How Language Features Evolve</h2>
+      <p class="section-desc">Every syntactic addition, type system extension, and standard library API undergoes strict phase gates.</p>
+    </div>
+
+    <div class="rfc-pipeline">
+      <div class="rfc-stage-card">
+        <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">STAGE 1</div>
+        <div class="rfc-stage-title">Exploration Issue</div>
+        <div class="rfc-stage-desc">Problem statement filed in GitHub Discussions or issues demonstrating concrete requirements.</div>
+      </div>
+      <div class="rfc-stage-card">
+        <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">STAGE 2</div>
+        <div class="rfc-stage-title">Draft RFC Proposal</div>
+        <div class="rfc-stage-desc">Formal grammar changes, grammar safety checks, and edge case specifications drafted in <code>Cretes-lang/rfcs</code>.</div>
+      </div>
+      <div class="rfc-stage-card" style="border-color: rgba(155, 123, 255, 0.4); background: rgba(155, 123, 255, 0.05);">
+        <div style="font-size: 0.72rem; color: var(--brand-accent); font-weight: 700;">STAGE 3 (CURRENT)</div>
+        <div class="rfc-stage-title">Phase Candidate</div>
+        <div class="rfc-stage-desc">Implementation of the syntax frontend in <code>cretes-front</code> with comprehensive test coverage and AST validation.</div>
+      </div>
+      <div class="rfc-stage-card">
+        <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">STAGE 4</div>
+        <div class="rfc-stage-title">Accepted Standard</div>
+        <div class="rfc-stage-desc">Governance review signoff, merging into canonical language specification, and toolchain release.</div>
+      </div>
+    </div>
+
+    <!-- Official Policies Grid -->
+    <div class="section-title-wrap" style="text-align: left; margin: 50px 0 25px;">
+      <span class="section-tag">Project Standards</span>
+      <h2 class="section-title">Core Policies &amp; Guidelines</h2>
+    </div>
+
+    <div class="community-grid">
+      <div class="feature-card">
+        <h3 class="feature-heading">Contributing</h3>
+        <p class="feature-text">We welcome issues, feature requests, and pull requests. Follow our branch naming conventions and run the full test suite before submission.</p>
+        <a href="https://github.com/Cretes-lang/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="announcement-link">Read CONTRIBUTING.md &rarr;</a>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-heading">Governance</h3>
+        <p class="feature-text">Cretes operates under an open governance model with clearly defined decision gates, review teams, and RFC consensus rules.</p>
+        <a href="https://github.com/Cretes-lang/.github/blob/main/GOVERNANCE.md" target="_blank" rel="noopener" class="announcement-link">Read GOVERNANCE.md &rarr;</a>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-heading">Code of Conduct</h3>
+        <p class="feature-text">Our community is dedicated to providing an inclusive, harassment-free, and respectful environment for all developers.</p>
+        <a href="https://github.com/Cretes-lang/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="announcement-link">Read CODE_OF_CONDUCT.md &rarr;</a>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-heading">Security Reporting</h3>
+        <p class="feature-text">Security is paramount for Cretes. Please report potential vulnerabilities privately following our coordinated disclosure policy.</p>
+        <a href="https://github.com/Cretes-lang/.github/blob/main/SECURITY.md" target="_blank" rel="noopener" class="announcement-link">Read SECURITY.md &rarr;</a>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-heading">Engineering Standards</h3>
+        <p class="feature-text">Strict requirements on zero compiler warnings, zero clippy warnings, deterministic AST node layouts, and comprehensive test suites.</p>
+        <a href="https://github.com/Cretes-lang/.github/blob/main/ENGINEERING.md" target="_blank" rel="noopener" class="announcement-link">Read ENGINEERING.md &rarr;</a>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-heading">License &amp; Maintainer</h3>
+        <p class="feature-text">Released under the permissive <strong>Apache-2.0</strong> license. Founded and initially maintained by <strong>@krishanth7</strong>.</p>
+        <a href="https://github.com/krishanth7" target="_blank" rel="noopener" class="announcement-link">View Maintainer Profile &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Cretes Language Authors. License: <a href="LICENSE" style="color: var(--brand-accent);">Apache-2.0</a></div>
+      <div>Initial Maintainer: <strong>@krishanth7</strong>.</div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="search-modal">
+    <div class="search-modal-card">
+      <div class="search-input-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search documentation, syntax, RFCs..." autocomplete="off">
+        <button id="btn-close-search" class="icon-btn" style="width: 28px; height: 28px;">✕</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="drawer-header">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" style="width: 32px; height: 32px;">
+          <span class="brand-title">Cretes</span>
+        </a>
+        <button id="btn-close-drawer" class="icon-btn">✕</button>
+      </div>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-nav-link">Overview</a></li>
+        <li><a href="docs.html" class="drawer-nav-link">Documentation</a></li>
+        <li><a href="playground.html" class="drawer-nav-link">Playground</a></li>
+        <li><a href="community.html" class="drawer-nav-link active">Community</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

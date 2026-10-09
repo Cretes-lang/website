@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Playground — Cretes Programming Language</title>
+  <meta name="description" content="Write, lex, and parse Cretes Phase 4 code in your browser with real-time AST arena inspection and token streaming.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Primary Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-link" aria-label="Cretes Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" class="brand-logo-img">
+        </div>
+        <span class="brand-title">Cretes</span>
+        <span class="brand-version-badge">Playground</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li>
+          <li class="nav-item"><a href="docs.html" class="nav-link">Documentation</a></li>
+          <li class="nav-item"><a href="playground.html" class="nav-link active">Playground</a></li>
+          <li class="nav-item"><a href="index.html#features" class="nav-link">Architecture</a></li>
+          <li class="nav-item"><a href="community.html" class="nav-link">Community</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-search" data-open-search aria-label="Search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span>Search</span>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" fill="currentColor"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener" class="btn-github">
+          <span>GitHub</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Playground Main Area -->
+  <main class="container playground-container">
+    <div class="playground-shell">
+      <!-- Toolbar -->
+      <div class="playground-toolbar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label for="example-select" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">PRESET:</label>
+          <select id="example-select" class="playground-select">
+            <option value="hello">01-hello-world.cretes</option>
+            <option value="packet">12-packet-validation.cretes</option>
+            <option value="borrowing">10-borrowing.cretes</option>
+            <option value="numeric">13-numeric-preprocessing.cretes</option>
+            <option value="automation">11-automation.cretes</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button id="pg-btn-lex" class="btn-tool btn-run">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>▶ Lex Tokens</span>
+          </button>
+          <button id="pg-btn-ast" class="btn-tool btn-run">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>🌳 Parse AST</span>
+          </button>
+          <button id="pg-btn-copy" class="btn-tool">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+          <button id="pg-btn-reset" class="btn-tool">
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Split View (Editor on Left, Output on Right) -->
+      <div class="playground-editor-split">
+        <!-- Editor Pane -->
+        <div class="editor-pane">
+          <div class="pane-titlebar">
+            <span>SOURCE CODE (.cretes)</span>
+            <span id="line-count-badge" style="font-family: var(--font-mono); font-size: 0.72rem;">6 lines</span>
+          </div>
+          <textarea id="pg-editor" class="code-textarea" spellcheck="false" placeholder="Write Cretes code here..."></textarea>
+        </div>
+
+        <!-- Output Pane -->
+        <div class="output-pane">
+          <div class="pane-titlebar">
+            <span id="output-pane-title">COMPILER DIAGNOSTICS &amp; AST ARENA</span>
+            <span style="color: var(--brand-accent);">Phase 4 Frontend</span>
+          </div>
+          <pre id="pg-output" class="output-view-area">Click "▶ Lex Tokens" or "🌳 Parse AST" to inspect frontend compilation.</pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="search-modal">
+    <div class="search-modal-card">
+      <div class="search-input-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search documentation, syntax, RFCs..." autocomplete="off">
+        <button id="btn-close-search" class="icon-btn" style="width: 28px; height: 28px;">✕</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="drawer-header">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" style="width: 32px; height: 32px;">
+          <span class="brand-title">Cretes</span>
+        </a>
+        <button id="btn-close-drawer" class="icon-btn">✕</button>
+      </div>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-nav-link">Overview</a></li>
+        <li><a href="docs.html" class="drawer-nav-link">Documentation</a></li>
+        <li><a href="playground.html" class="drawer-nav-link active">Playground</a></li>
+        <li><a href="community.html" class="drawer-nav-link">Community</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/code-samples.js"></script>
+  <script src="js/playground.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.getElementById('example-select');
+      const editor = document.getElementById('pg-editor');
+      const output = document.getElementById('pg-output');
+      const btnLex = document.getElementById('pg-btn-lex');
+      const btnAst = document.getElementById('pg-btn-ast');
+      const btnCopy = document.getElementById('pg-btn-copy');
+      const btnReset = document.getElementById('pg-btn-reset');
+      const lineCountBadge = document.getElementById('line-count-badge');
+      const outputTitle = document.getElementById('output-pane-title');
+
+      function loadPreset(key) {
+        if (!window.CRETES_SAMPLES || !window.CRETES_SAMPLES[key]) return;
+        editor.value = window.CRETES_SAMPLES[key].code;
+        updateLineCount();
+      }
+
+      function updateLineCount() {
+        const lines = editor.value.split('\n').length;
+        lineCountBadge.textContent = `${lines} line${lines > 1 ? 's' : ''}`;
+      }
+
+      select.addEventListener('change', (e) => {
+        loadPreset(e.target.value);
+      });
+
+      editor.addEventListener('input', updateLineCount);
+
+      btnLex.addEventListener('click', () => {
+        const code = editor.value;
+        const tokens = window.CretesFrontend.lex(code);
+        output.textContent = window.CretesFrontend.formatLex(tokens);
+        outputTitle.textContent = `TOKEN STREAM (${tokens.length} TOKENS)`;
+      });
+
+      btnAst.addEventListener('click', () => {
+        const code = editor.value;
+        const ast = window.CretesFrontend.parseAst(code);
+        output.textContent = ast;
+        outputTitle.textContent = "ARENA AST PARSE TREE (PHASE 4)";
+      });
+
+      btnCopy.addEventListener('click', () => {
+        copyToClipboard(editor.value, "Playground code copied!");
+      });
+
+      btnReset.addEventListener('click', () => {
+        loadPreset(select.value);
+        output.textContent = "Playground reset to default preset.";
+        outputTitle.textContent = "STATUS";
+      });
+
+      // Initial preset
+      loadPreset('hello');
+    });
+  </script>
+</body>
+</html>

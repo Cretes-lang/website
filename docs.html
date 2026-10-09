@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — Cretes Programming Language</title>
+  <meta name="description" content="Official documentation, language tour, borrow semantics, standard library reference and compiler frontend guide for the Cretes programming language.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <div class="announcement-bar">
+    <span class="announcement-badge">Docs</span>
+    <span>Phase 4 Syntax Specification Candidate Reference Guide</span>
+    <a href="https://github.com/Cretes-lang/spec" target="_blank" class="announcement-link">
+      GitHub Spec
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Primary Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <!-- Brand Logo & Title -->
+      <a href="index.html" class="brand-link" aria-label="Cretes Programming Language Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" class="brand-logo-img">
+        </div>
+        <span class="brand-title">Cretes</span>
+        <span class="brand-version-badge">Docs</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="docs.html" class="nav-link active">
+              Documentation
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="playground.html" class="nav-link">Playground</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#features" class="nav-link">Architecture</a>
+          </li>
+          <li class="nav-item">
+            <a href="community.html" class="nav-link">Community</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Tools & Actions -->
+      <div class="header-actions">
+        <button class="btn-search" data-open-search aria-label="Search documentation">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <span>Search</span>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+
+        <a href="https://github.com/Cretes-lang/cretes" target="_blank" rel="noopener noreferrer" class="btn-github" aria-label="Cretes on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Dark and Light mode">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" fill="currentColor"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <a href="playground.html" class="btn-primary">
+          <span>Playground</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Open mobile menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="page-hero-banner">
+    <div class="container">
+      <h1 class="page-hero-title">Cretes Documentation</h1>
+      <p class="page-hero-desc">
+        Comprehensive guides, grammar specifications, borrow checking mechanics, and toolchain instructions for the Cretes programming language.
+      </p>
+    </div>
+  </div>
+
+  <!-- Documentation Layout -->
+  <main class="container">
+    <div class="docs-layout">
+      <!-- Left Sidebar Navigation -->
+      <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <div class="docs-nav-heading">Getting Started</div>
+          <ul class="docs-nav-list">
+            <li><a href="#getting-started" class="docs-nav-link active">Toolchain Setup</a></li>
+            <li><a href="#hello-world" class="docs-nav-link">Hello World</a></li>
+            <li><a href="#project-structure" class="docs-nav-link">Project Layout</a></li>
+          </ul>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-heading">Language Tour</div>
+          <ul class="docs-nav-list">
+            <li><a href="#variables" class="docs-nav-link">Variables (let / var)</a></li>
+            <li><a href="#types" class="docs-nav-link">Primitive Types</a></li>
+            <li><a href="#functions" class="docs-nav-link">Functions</a></li>
+            <li><a href="#control-flow" class="docs-nav-link">Control Flow</a></li>
+            <li><a href="#user-types" class="docs-nav-link">Enums &amp; Structs</a></li>
+          </ul>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-heading">Memory &amp; Safety</div>
+          <ul class="docs-nav-list">
+            <li><a href="#borrowing" class="docs-nav-link">Borrow Semantics</a></li>
+            <li><a href="#provenance" class="docs-nav-link">Provenance (from)</a></li>
+            <li><a href="#errors" class="docs-nav-link">Result &amp; ? Operator</a></li>
+          </ul>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-heading">Standard Library</div>
+          <ul class="docs-nav-list">
+            <li><a href="#stdlib-io" class="docs-nav-link">std::io</a></li>
+            <li><a href="#stdlib-bytes" class="docs-nav-link">std::bytes</a></li>
+            <li><a href="#stdlib-fs" class="docs-nav-link">std::fs</a></li>
+          </ul>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-heading">Compiler Frontend</div>
+          <ul class="docs-nav-list">
+            <li><a href="#compiler" class="docs-nav-link">cretes-front CLI</a></li>
+            <li><a href="#ast" class="docs-nav-link">Arena AST Format</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Article Content -->
+      <article class="docs-article">
+        <!-- Section: Toolchain Setup -->
+        <section id="getting-started">
+          <h1>Getting Started with Cretes</h1>
+          <p>
+            Cretes uses a provisional Phase 4 syntax frontend implemented in Rust 1.85.1 with zero third-party Rust dependencies. The toolchain compiles directly using standard Cargo tools.
+          </p>
+
+          <div class="callout callout-info">
+            <div class="callout-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span>Pinned Toolchain</span>
+            </div>
+            The Cretes compiler frontend targets Rust 1.85.1 (specified in <code>rust-toolchain.toml</code>). Ensure you have <code>cargo</code> and <code>rustc</code> installed.
+          </div>
+
+          <h2>Building the Frontend</h2>
+          <p>Clone the core repository and compile the binaries:</p>
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code">git clone https://github.com/Cretes-lang/cretes.git</span></div>
+              <div class="code-line"><span class="line-no">2</span><span class="line-code">cd cretes</span></div>
+              <div class="code-line"><span class="line-no">3</span><span class="line-code">cargo build --locked</span></div>
+              <div class="code-line"><span class="line-no">4</span><span class="line-code">cargo test --locked</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Hello World -->
+        <section id="hello-world">
+          <h2>Your First Cretes Program</h2>
+          <p>Create a file named <code>main.cretes</code> with the following content:</p>
+
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code"><span class="kwd">import</span> <span class="typ">std::io</span>;</span></div>
+              <div class="code-line"><span class="line-no">2</span><span class="line-code"></span></div>
+              <div class="code-line"><span class="line-no">3</span><span class="line-code"><span class="kwd">fn</span> <span class="fn">main</span>() -&gt; <span class="typ">Result</span>[<span class="typ">i32</span>, <span class="typ">io::Error</span>] {</span></div>
+              <div class="code-line"><span class="line-no">4</span><span class="line-code">    <span class="typ">io</span>::<span class="fn">println</span>(<span class="str">"Hello, Cretes!"</span>)?;</span></div>
+              <div class="code-line"><span class="line-no">5</span><span class="line-code">    <span class="kwd">return</span> <span class="typ">Result::Ok</span>(<span class="num">0</span>);</span></div>
+              <div class="code-line"><span class="line-no">6</span><span class="line-code">}</span></div>
+            </div>
+          </div>
+
+          <p>Parse and inspect the program using the front-end utility:</p>
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code">cargo run --bin cretes-front -- parse main.cretes</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Variables -->
+        <section id="variables">
+          <h2>Variables and Mutability</h2>
+          <p>
+            In Cretes, variables are immutable by default when declared with <code>let</code>. Mutable variables must explicitly use the <code>var</code> keyword.
+          </p>
+
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code"><span class="cmt">// Immutable binding</span></span></div>
+              <div class="code-line"><span class="line-no">2</span><span class="line-code"><span class="kwd">let</span> count: <span class="typ">i64</span> = <span class="num">42</span>;</span></div>
+              <div class="code-line"><span class="line-no">3</span><span class="line-code"></span></div>
+              <div class="code-line"><span class="line-no">4</span><span class="line-code"><span class="cmt">// Mutable binding</span></span></div>
+              <div class="code-line"><span class="line-no">5</span><span class="line-code"><span class="kwd">var</span> accumulator: <span class="typ">f64</span> = <span class="num">0.0</span>;</span></div>
+              <div class="code-line"><span class="line-no">6</span><span class="line-code">accumulator = accumulator + <span class="num">1.5</span>;</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Memory Safety & Borrowing -->
+        <section id="borrowing">
+          <h2>Memory Borrowing &amp; Provenance</h2>
+          <p>
+            Cretes enforces safe compile-time borrowing. References are created using <code>&amp;</code> and mutable references using <code>&amp;mut</code>. To eliminate dangling pointers without a tracing garbage collector, Cretes introduces the explicit <code>from</code> provenance syntax for returning borrowed references:
+          </p>
+
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code"><span class="kwd">fn</span> <span class="fn">first</span>(values: &amp;<span class="typ">Seq</span>[<span class="typ">i64</span>]) -&gt; &amp;<span class="typ">i64</span> <span class="kwd">from</span> values {</span></div>
+              <div class="code-line"><span class="line-no">2</span><span class="line-code">    <span class="kwd">return</span> &amp;(*values)[<span class="num">0</span>];</span></div>
+              <div class="code-line"><span class="line-no">3</span><span class="line-code">}</span></div>
+              <div class="code-line"><span class="line-no">4</span><span class="line-code"></span></div>
+              <div class="code-line"><span class="line-no">5</span><span class="line-code"><span class="kwd">fn</span> <span class="fn">increment</span>(value: &amp;<span class="kwd">mut</span> <span class="typ">i64</span>) -&gt; () {</span></div>
+              <div class="code-line"><span class="line-no">6</span><span class="line-code">    *value = *value + <span class="num">1</span>;</span></div>
+              <div class="code-line"><span class="line-no">7</span><span class="line-code">}</span></div>
+            </div>
+          </div>
+
+          <div class="callout callout-tip">
+            <div class="callout-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              <span>Zero-cost Lifetime Tracking</span>
+            </div>
+            The <code>from values</code> clause informs the compiler that the returned pointer's validity is bounded by the lifetime of the input parameter <code>values</code>.
+          </div>
+        </section>
+
+        <!-- Section: Error Handling -->
+        <section id="errors">
+          <h2>Result Error Handling</h2>
+          <p>
+            Cretes eliminates unhandled null pointers and unmonitored exceptions. Fallible functions return <code>Result[T, E]</code>, which is either <code>Result::Ok(val)</code> or <code>Result::Err(err)</code>. The <code>?</code> operator unwraps the successful value or immediately returns the error from the caller function.
+          </p>
+
+          <div class="hero-code-workbench" style="margin-bottom: 24px;">
+            <div class="code-editor-area">
+              <div class="code-line"><span class="line-no">1</span><span class="line-code"><span class="kwd">import</span> <span class="typ">std::fs</span>;</span></div>
+              <div class="code-line"><span class="line-no">2</span><span class="line-code"></span></div>
+              <div class="code-line"><span class="line-no">3</span><span class="line-code"><span class="kwd">fn</span> <span class="fn">process_config</span>(path: &amp;<span class="typ">String</span>) -&gt; <span class="typ">Result</span>[<span class="typ">Bytes</span>, <span class="typ">fs::Error</span>] {</span></div>
+              <div class="code-line"><span class="line-no">4</span><span class="line-code">    <span class="kwd">let</span> contents = <span class="typ">fs</span>::<span class="fn">read_bytes</span>(path)?;</span></div>
+              <div class="code-line"><span class="line-no">5</span><span class="line-code">    <span class="kwd">return</span> <span class="typ">Result::Ok</span>(contents);</span></div>
+              <div class="code-line"><span class="line-no">6</span><span class="line-code">}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Standard Library -->
+        <section id="stdlib-io">
+          <h2>Standard Library Overview</h2>
+          <p>
+            Cretes ships with an audited, minimal standard library focused on systems programming, cyber defense, and automation.
+          </p>
+
+          <div class="matrix-table-wrap" style="margin-bottom: 30px;">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Primary APIs</th>
+                  <th>Target Domain</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>std::io</code></td>
+                  <td><code>print</code>, <code>println</code>, <code>read_line</code></td>
+                  <td>Terminal I/O and formatted streams</td>
+                </tr>
+                <tr>
+                  <td><code>std::bytes</code></td>
+                  <td><code>len</code>, <code>slice</code>, <code>from_slice</code></td>
+                  <td>Zero-copy memory slices &amp; network buffers</td>
+                </tr>
+                <tr>
+                  <td><code>std::fs</code></td>
+                  <td><code>read_bytes</code>, <code>write_bytes</code>, <code>exists</code></td>
+                  <td>Deterministic filesystem automation</td>
+                </tr>
+                <tr>
+                  <td><code>std::net</code></td>
+                  <td><code>TcpStream</code>, <code>UdpSocket</code></td>
+                  <td>High-throughput networking and cyber defense</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+
+      <!-- Right Table of Contents -->
+      <aside class="docs-toc">
+        <div class="docs-toc-title">On this page</div>
+        <ul class="docs-toc-list">
+          <li><a href="#getting-started" class="docs-toc-link">Toolchain Setup</a></li>
+          <li><a href="#hello-world" class="docs-toc-link">Your First Program</a></li>
+          <li><a href="#variables" class="docs-toc-link">Variables &amp; Mutability</a></li>
+          <li><a href="#borrowing" class="docs-toc-link">Memory Borrowing</a></li>
+          <li><a href="#errors" class="docs-toc-link">Result Error Model</a></li>
+          <li><a href="#stdlib-io" class="docs-toc-link">Standard Library</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Cretes Language Authors. License: <a href="LICENSE" style="color: var(--brand-accent);">Apache-2.0</a></div>
+      <div>Maintained by <strong>@krishanth7</strong>.</div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay (Ctrl+K) -->
+  <div class="search-modal-backdrop" id="search-modal">
+    <div class="search-modal-card">
+      <div class="search-input-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search documentation, syntax, RFCs..." autocomplete="off">
+        <button id="btn-close-search" class="icon-btn" style="width: 28px; height: 28px;" aria-label="Close search">✕</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="drawer-header">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-transparent.png" alt="Cretes Logo" style="width: 32px; height: 32px;">
+          <span class="brand-title">Cretes</span>
+        </a>
+        <button id="btn-close-drawer" class="icon-btn" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-nav-link">Overview</a></li>
+        <li><a href="docs.html" class="drawer-nav-link active">Documentation</a></li>
+        <li><a href="playground.html" class="drawer-nav-link">Playground</a></li>
+        <li><a href="index.html#features" class="drawer-nav-link">Architecture</a></li>
+        <li><a href="community.html" class="drawer-nav-link">Community</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

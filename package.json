@@ -1,0 +1,18 @@
+{
+  "name": "cretes-website",
+  "version": "0.4.0",
+  "description": "Official website and documentation portal for the Cretes programming language",
+  "scripts": {
+    "start": "node server.cjs",
+    "dev": "node server.cjs"
+  },
+  "keywords": [
+    "cretes",
+    "programming-language",
+    "systems-programming",
+    "compiler",
+    "documentation"
+  ],
+  "author": "krishanth7",
+  "license": "Apache-2.0"
+}
