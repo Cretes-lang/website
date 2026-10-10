@@ -322,6 +322,7 @@ body.legal-page {
 .legal-title-gradient {
   background: var(--legal-accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
