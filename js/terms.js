@@ -1,7 +1,13 @@
 /**
  * Cretes Programming Language — Terms of Use Page Controller
- * High-performance IntersectionObserver TOC tracking, Reading Progress,
- * Accessible Clipboard Copy, Print Actions, and Mobile TOC Disclosure.
+ * Enterprise Technical Documentation UX:
+ * - 3px Gradient Reading Progress Bar with dual-track sync
+ * - Live Desktop Reading HUD Widget (Percentage, Time Est, Current Section)
+ * - Mobile TOC Progress Pill
+ * - High-performance IntersectionObserver Section Tracking
+ * - Interactive Real-time Section Filter for 24 Sections
+ * - Accessible Clipboard Copy & Native Print Actions
+ * - Accessible Mobile TOC Drawer
  */
 
 (function () {
@@ -12,6 +18,7 @@
   function initLegalPage() {
     initReadingProgress();
     initTocActiveTracking();
+    initTocFilter();
     initMobileToc();
     initUtilityActions();
     initBackToTop();
@@ -19,14 +26,20 @@
   }
 
   /* --------------------------------------------------------------------------
-     1. Reading Progress Bar (Section 11 Specification)
+     1. Corporate Reading Progress Bar & Live HUD Sync
      -------------------------------------------------------------------------- */
   function initReadingProgress() {
     const progressBar = document.getElementById('reading-progress');
     const article = document.getElementById('main-content');
+    const railPct = document.getElementById('rail-progress-pct');
+    const railFill = document.getElementById('rail-progress-fill');
+    const railTime = document.getElementById('rail-time-est');
+    const mobilePill = document.getElementById('mobile-progress-pill');
+
     if (!progressBar || !article) return;
 
     let ticking = false;
+    const totalReadingMinutes = 8; // Baseline estimated reading time
 
     function updateProgress() {
       const rect = article.getBoundingClientRect();
@@ -35,9 +48,8 @@
       const windowHeight = window.innerHeight;
       const currentScroll = window.scrollY;
 
-      // Start calculating when the top of article enters, end when the bottom is viewed
-      const start = articleTop - (windowHeight * 0.2);
-      const end = articleTop + articleHeight - (windowHeight * 0.8);
+      const start = articleTop - (windowHeight * 0.15);
+      const end = articleTop + articleHeight - (windowHeight * 0.75);
       const distance = end - start;
 
       let percentage = 0;
@@ -51,10 +63,26 @@
         }
       }
 
-      // Clamp between 0% and 100%
       percentage = Math.min(100, Math.max(0, percentage));
+      const formattedPct = percentage.toFixed(0) + '%';
+
+      // 1. Top Bar
       progressBar.style.width = percentage.toFixed(1) + '%';
       progressBar.setAttribute('aria-valuenow', Math.round(percentage).toString());
+
+      // 2. Desktop Rail HUD
+      if (railPct) railPct.textContent = formattedPct;
+      if (railFill) railFill.style.width = percentage.toFixed(1) + '%';
+      if (railTime) {
+        const remainingMinutes = Math.max(1, Math.ceil(((100 - percentage) / 100) * totalReadingMinutes));
+        railTime.textContent = percentage >= 98 ? 'Complete' : `~${remainingMinutes} min read`;
+      }
+
+      // 3. Mobile Progress Pill
+      if (mobilePill) {
+        mobilePill.textContent = formattedPct;
+      }
+
       ticking = false;
     }
 
@@ -83,13 +111,14 @@
     const desktopTocLinks = document.querySelectorAll('.legal-toc-link');
     const mobileTocLinks = document.querySelectorAll('.mobile-toc-link');
     const mobileCurrentLabel = document.getElementById('mobile-toc-current-label');
+    const tocStatusActiveName = document.getElementById('toc-status-active-name');
+    const railSecTitle = document.getElementById('rail-sec-title');
     const aside = document.querySelector('.legal-toc-aside');
 
     if (!sections.length) return;
 
     let activeId = null;
 
-    // Use IntersectionObserver with a top offset to account for sticky header
     const observerOptions = {
       root: null,
       rootMargin: '-88px 0px -65% 0px',
@@ -103,7 +132,6 @@
         sectionEntries.set(entry.target.id, entry);
       });
 
-      // Find the topmost visible section
       let bestSectionId = null;
       let minTop = Infinity;
 
@@ -119,12 +147,11 @@
         }
       });
 
-      // Fallback: If no section is in optimal threshold, pick the one above fold
       if (!bestSectionId) {
         let candidateId = null;
         sections.forEach((sec) => {
           const rect = sec.getBoundingClientRect();
-          if (rect.top <= 120) {
+          if (rect.top <= 140) {
             candidateId = sec.id;
           }
         });
@@ -140,6 +167,8 @@
 
     function setActiveSection(id) {
       activeId = id;
+      let activeTitleText = '';
+      let activeNumText = '';
 
       // Update Desktop TOC
       desktopTocLinks.forEach((link) => {
@@ -148,7 +177,12 @@
         if (match) {
           link.classList.add('is-active');
           link.setAttribute('aria-current', 'location');
-          // Auto-scroll sidebar if necessary
+          const numSpan = link.querySelector('.legal-toc-num');
+          const textSpan = link.querySelector('.legal-toc-text');
+          activeNumText = numSpan ? numSpan.textContent.trim() : '';
+          activeTitleText = textSpan ? textSpan.textContent.trim() : '';
+
+          // Auto-scroll sidebar if item overflows view
           if (aside) {
             const linkRect = link.getBoundingClientRect();
             const asideRect = aside.getBoundingClientRect();
@@ -179,9 +213,18 @@
           link.removeAttribute('aria-current');
         }
       });
+
+      // Update TOC Status Chip
+      if (tocStatusActiveName && activeTitleText) {
+        tocStatusActiveName.textContent = `${activeNumText ? activeNumText + '. ' : ''}${activeTitleText}`;
+      }
+
+      // Update Desktop Rail Current Section
+      if (railSecTitle && activeTitleText) {
+        railSecTitle.textContent = `${activeNumText ? activeNumText + ' ' : ''}${activeTitleText}`;
+      }
     }
 
-    // Set initial active state based on hash or first section
     const currentHash = window.location.hash.replace('#', '');
     if (currentHash && document.getElementById(currentHash)) {
       setActiveSection(currentHash);
@@ -191,7 +234,80 @@
   }
 
   /* --------------------------------------------------------------------------
-     3. Mobile TOC Accordion / Disclosure (Section 13.3)
+     3. Real-Time Section Filter for 24 Sections
+     -------------------------------------------------------------------------- */
+  function initTocFilter() {
+    const desktopInput = document.getElementById('toc-filter-input');
+    const mobileInput = document.getElementById('mobile-toc-filter-input');
+    const clearBtn = document.getElementById('toc-filter-clear');
+    const countBadge = document.getElementById('toc-count-badge');
+    const desktopItems = document.querySelectorAll('.legal-toc-item');
+    const mobileItems = document.querySelectorAll('#mobile-toc-list li');
+
+    if (!desktopInput && !mobileInput) return;
+
+    function applyFilter(query) {
+      const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      // Filter Desktop TOC
+      desktopItems.forEach((item) => {
+        const text = item.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          item.classList.remove('is-hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('is-hidden');
+        }
+      });
+
+      // Filter Mobile TOC
+      mobileItems.forEach((item) => {
+        const text = item.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Update Count Badge
+      if (countBadge) {
+        countBadge.textContent = q ? `${visibleCount} Found` : '24 Sections';
+      }
+
+      // Show/Hide Clear Button
+      if (clearBtn) {
+        clearBtn.style.display = q ? 'block' : 'none';
+      }
+    }
+
+    if (desktopInput) {
+      desktopInput.addEventListener('input', (e) => applyFilter(e.target.value));
+      desktopInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          desktopInput.value = '';
+          applyFilter('');
+        }
+      });
+    }
+
+    if (mobileInput) {
+      mobileInput.addEventListener('input', (e) => applyFilter(e.target.value));
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (desktopInput) desktopInput.value = '';
+        if (mobileInput) mobileInput.value = '';
+        applyFilter('');
+        if (desktopInput) desktopInput.focus();
+      });
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     4. Mobile TOC Accordion / Disclosure (Section 13.3)
      -------------------------------------------------------------------------- */
   function initMobileToc() {
     const toggleBtn = document.getElementById('mobile-toc-toggle');
@@ -214,7 +330,6 @@
       });
     });
 
-    // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (!toggleBtn.contains(e.target) && !panel.contains(e.target)) {
         toggleBtn.setAttribute('aria-expanded', 'false');
@@ -224,7 +339,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     4. Document Utility Actions: Copy Link & Print (Section 10)
+     5. Document Utility Actions: Copy Link & Print (Section 10)
      -------------------------------------------------------------------------- */
   function initUtilityActions() {
     const copyBtns = document.querySelectorAll('[data-action="copy-link"]');
@@ -292,7 +407,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     5. Back to Top Button
+     6. Back to Top Button
      -------------------------------------------------------------------------- */
   function initBackToTop() {
     const backBtn = document.getElementById('back-to-top');
@@ -326,7 +441,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     6. System Theme Preference Listener (Section 14 Specification)
+     7. System Theme Preference Listener (Section 14 Specification)
      -------------------------------------------------------------------------- */
   function initSystemThemeListener() {
     if (!window.matchMedia) return;
@@ -334,7 +449,6 @@
 
     mediaQuery.addEventListener('change', (e) => {
       const stored = localStorage.getItem('cretes-theme');
-      // If user hasn't explicitly locked light/dark, adapt with system
       if (!stored || stored === 'system') {
         const newTheme = e.matches ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', newTheme);
