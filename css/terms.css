@@ -108,45 +108,28 @@ body.legal-page {
 }
 
 /* --------------------------------------------------------------------------
-   Corporate Reading Progress Bar (Section 11 Specification)
+   Corporate Reading Progress Bar (Hidden per user request)
    -------------------------------------------------------------------------- */
 .reading-progress-track {
-  position: fixed;
-  top: var(--nav-height, 64px);
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.08);
-  z-index: 99;
-  pointer-events: none;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
 }
 
 .reading-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--legal-accent-gradient);
-  transition: width 0.08s ease-out;
-  box-shadow: 0 0 12px var(--legal-brand-purple);
-  position: relative;
+  display: none !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  box-shadow: none !important;
 }
 
 .reading-progress-bar::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: -1px;
-  bottom: -1px;
-  width: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--legal-brand-purple);
+  display: none !important;
+  content: none !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reading-progress-bar {
-    transition: none;
-  }
-}
 
 /* --------------------------------------------------------------------------
    Header Language & Nav Polish
