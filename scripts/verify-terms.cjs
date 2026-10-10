@@ -74,18 +74,18 @@ if (failedChecks.length > 0) {
 // 4. Verify CSS Tokens in terms.css
 const css = fs.readFileSync(path.join(__dirname, '..', 'css', 'terms.css'), 'utf8');
 const expectedTokens = [
-  '--legal-bg: #17151C',
-  '--legal-surface-primary: #211D26',
-  '--legal-surface-secondary: #292430',
-  '--legal-text-primary: #F7F5FA',
-  '--legal-border: #393340',
+  '--legal-bg: #0E0C12',
+  '--legal-surface-primary: #17141E',
+  '--legal-surface-secondary: #1F1A28',
+  '--legal-text-primary: #F8F6FB',
+  '--legal-border: #2E273A',
   '--legal-brand-purple: #B5A2FF',
-  '--legal-bg: #F7F3EC',
+  '--legal-bg: #F7F5F0',
   '--legal-surface-primary: #FFFFFF',
-  '--legal-surface-secondary: #F0ECE7',
-  '--legal-text-primary: #17151C',
-  '--legal-border: #E5DFE7',
-  '--legal-brand-purple: #6D4AFF',
+  '--legal-surface-secondary: #EFEBE5',
+  '--legal-text-primary: #131118',
+  '--legal-border: #E2DDD5',
+  '--legal-brand-purple: #5F3DE8',
   '@media print'
 ];
 
